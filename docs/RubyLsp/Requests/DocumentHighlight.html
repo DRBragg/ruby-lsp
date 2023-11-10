@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RubyLsp::Requests::DocumentHighlight - Ruby LSP documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+<div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  <p class="link"><a href="../Listener.html">RubyLsp::Listener</a>
+</div>
+
+    
+    
+<div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    <li><span class="extend">T::Sig</span>
+  </ul>
+</div>
+
+    
+<!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    <li ><a href="#method-i-on_block_parameter_node_enter">#on_block_parameter_node_enter</a>
+    <li ><a href="#method-i-on_call_node_enter">#on_call_node_enter</a>
+    <li ><a href="#method-i-on_class_node_enter">#on_class_node_enter</a>
+    <li ><a href="#method-i-on_class_variable_and_write_node_enter">#on_class_variable_and_write_node_enter</a>
+    <li ><a href="#method-i-on_class_variable_operator_write_node_enter">#on_class_variable_operator_write_node_enter</a>
+    <li ><a href="#method-i-on_class_variable_or_write_node_enter">#on_class_variable_or_write_node_enter</a>
+    <li ><a href="#method-i-on_class_variable_read_node_enter">#on_class_variable_read_node_enter</a>
+    <li ><a href="#method-i-on_class_variable_target_node_enter">#on_class_variable_target_node_enter</a>
+    <li ><a href="#method-i-on_class_variable_write_node_enter">#on_class_variable_write_node_enter</a>
+    <li ><a href="#method-i-on_constant_and_write_node_enter">#on_constant_and_write_node_enter</a>
+    <li ><a href="#method-i-on_constant_operator_write_node_enter">#on_constant_operator_write_node_enter</a>
+    <li ><a href="#method-i-on_constant_or_write_node_enter">#on_constant_or_write_node_enter</a>
+    <li ><a href="#method-i-on_constant_path_and_write_node_enter">#on_constant_path_and_write_node_enter</a>
+    <li ><a href="#method-i-on_constant_path_node_enter">#on_constant_path_node_enter</a>
+    <li ><a href="#method-i-on_constant_path_operator_write_node_enter">#on_constant_path_operator_write_node_enter</a>
+    <li ><a href="#method-i-on_constant_path_or_write_node_enter">#on_constant_path_or_write_node_enter</a>
+    <li ><a href="#method-i-on_constant_path_target_node_enter">#on_constant_path_target_node_enter</a>
+    <li ><a href="#method-i-on_constant_path_write_node_enter">#on_constant_path_write_node_enter</a>
+    <li ><a href="#method-i-on_constant_read_node_enter">#on_constant_read_node_enter</a>
+    <li ><a href="#method-i-on_constant_target_node_enter">#on_constant_target_node_enter</a>
+    <li ><a href="#method-i-on_constant_write_node_enter">#on_constant_write_node_enter</a>
+    <li ><a href="#method-i-on_def_node_enter">#on_def_node_enter</a>
+    <li ><a href="#method-i-on_global_variable_and_write_node_enter">#on_global_variable_and_write_node_enter</a>
+    <li ><a href="#method-i-on_global_variable_operator_write_node_enter">#on_global_variable_operator_write_node_enter</a>
+    <li ><a href="#method-i-on_global_variable_or_write_node_enter">#on_global_variable_or_write_node_enter</a>
+    <li ><a href="#method-i-on_global_variable_read_node_enter">#on_global_variable_read_node_enter</a>
+    <li ><a href="#method-i-on_global_variable_target_node_enter">#on_global_variable_target_node_enter</a>
+    <li ><a href="#method-i-on_global_variable_write_node_enter">#on_global_variable_write_node_enter</a>
+    <li ><a href="#method-i-on_instance_variable_and_write_node_enter">#on_instance_variable_and_write_node_enter</a>
+    <li ><a href="#method-i-on_instance_variable_operator_write_node_enter">#on_instance_variable_operator_write_node_enter</a>
+    <li ><a href="#method-i-on_instance_variable_or_write_node_enter">#on_instance_variable_or_write_node_enter</a>
+    <li ><a href="#method-i-on_instance_variable_read_node_enter">#on_instance_variable_read_node_enter</a>
+    <li ><a href="#method-i-on_instance_variable_target_node_enter">#on_instance_variable_target_node_enter</a>
+    <li ><a href="#method-i-on_instance_variable_write_node_enter">#on_instance_variable_write_node_enter</a>
+    <li ><a href="#method-i-on_keyword_rest_parameter_node_enter">#on_keyword_rest_parameter_node_enter</a>
+    <li ><a href="#method-i-on_local_variable_and_write_node_enter">#on_local_variable_and_write_node_enter</a>
+    <li ><a href="#method-i-on_local_variable_operator_write_node_enter">#on_local_variable_operator_write_node_enter</a>
+    <li ><a href="#method-i-on_local_variable_or_write_node_enter">#on_local_variable_or_write_node_enter</a>
+    <li ><a href="#method-i-on_local_variable_read_node_enter">#on_local_variable_read_node_enter</a>
+    <li ><a href="#method-i-on_local_variable_target_node_enter">#on_local_variable_target_node_enter</a>
+    <li ><a href="#method-i-on_local_variable_write_node_enter">#on_local_variable_write_node_enter</a>
+    <li ><a href="#method-i-on_module_node_enter">#on_module_node_enter</a>
+    <li ><a href="#method-i-on_optional_keyword_parameter_node_enter">#on_optional_keyword_parameter_node_enter</a>
+    <li ><a href="#method-i-on_optional_parameter_node_enter">#on_optional_parameter_node_enter</a>
+    <li ><a href="#method-i-on_required_keyword_parameter_node_enter">#on_required_keyword_parameter_node_enter</a>
+    <li ><a href="#method-i-on_required_parameter_node_enter">#on_required_parameter_node_enter</a>
+    <li ><a href="#method-i-on_rest_parameter_node_enter">#on_rest_parameter_node_enter</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RubyLsp::Requests::DocumentHighlight">
+  <h1 id="class-RubyLsp::Requests::DocumentHighlight" class="class">
+    class RubyLsp::Requests::DocumentHighlight
+  </h1>
+
+  <section class="description">
+    
+<p><img src="../../document_highlight.gif"></p>
+
+<p>The <a href="https://microsoft.github.io/language-server-protocol/specification#textDocument_documentHighlight">document highlight</a> informs the editor all relevant elements of the currently pointed item for highlighting. For example, when the cursor is on the <code>F</code> of the constant <code>FOO</code>, the editor should identify other occurrences of <code>FOO</code> and highlight them.</p>
+
+<p>For writable elements like constants or variables, their read/write occurrences should be highlighted differently. This is achieved by sending different “kind” attributes to the editor (2 for read and 3 for write).</p>
+
+<h1 id="class-RubyLsp::Requests::DocumentHighlight-label-Example">Example<span><a href="#class-RubyLsp::Requests::DocumentHighlight-label-Example">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<pre class="ruby"><span class="ruby-constant">FOO</span> = <span class="ruby-value">1</span> <span class="ruby-comment"># should be highlighted as &quot;write&quot;</span>
+
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">foo</span>
+  <span class="ruby-constant">FOO</span> <span class="ruby-comment"># should be highlighted as &quot;read&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section">
+
+
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+        <dt id="CLASS_VARIABLE_NODES">CLASS_VARIABLE_NODES
+        <dd>
+        <dt id="CONSTANT_NODES">CONSTANT_NODES
+        <dd>
+        <dt id="CONSTANT_PATH_NODES">CONSTANT_PATH_NODES
+        <dd>
+        <dt id="GLOBAL_VARIABLE_NODES">GLOBAL_VARIABLE_NODES
+        <dd>
+        <dt id="INSTANCE_VARIABLE_NODES">INSTANCE_VARIABLE_NODES
+        <dd>
+        <dt id="LOCAL_NODES">LOCAL_NODES
+        <dd>
+        <dt id="ResponseType">ResponseType
+        <dd>
+      </dl>
+    </section>
+
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      <div id="attribute-i-_response" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">_response</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        </div>
+      </div>
+    </section>
+
+
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+      <div id="method-c-new" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">new</span><span
+              class="method-args">(target, parent, dispatcher, message_queue)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="../Listener.html#method-c-new"><code>RubyLsp::Listener::new</code></a>
+            </div>
+
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">target</span>, <span class="ruby-identifier">parent</span>, <span class="ruby-identifier">dispatcher</span>, <span class="ruby-identifier">message_queue</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">dispatcher</span>, <span class="ruby-identifier">message_queue</span>)
+
+  <span class="ruby-ivar">@_response</span> = <span class="ruby-constant">T</span>.<span class="ruby-identifier">let</span>([], <span class="ruby-constant">T</span><span class="ruby-operator">::</span><span class="ruby-constant">Array</span>[<span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlight</span>])
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">target</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">parent</span>
+
+  <span class="ruby-identifier">highlight_target</span> =
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">target</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">GlobalVariableReadNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">GlobalVariableAndWriteNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">GlobalVariableOperatorWriteNode</span>,
+      <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">GlobalVariableOrWriteNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">GlobalVariableTargetNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">GlobalVariableWriteNode</span>,
+      <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">InstanceVariableAndWriteNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">InstanceVariableOperatorWriteNode</span>,
+      <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">InstanceVariableOrWriteNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">InstanceVariableReadNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">InstanceVariableTargetNode</span>,
+      <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">InstanceVariableWriteNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">ConstantAndWriteNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">ConstantOperatorWriteNode</span>,
+      <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">ConstantOrWriteNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">ConstantPathAndWriteNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">ConstantPathNode</span>,
+      <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">ConstantPathOperatorWriteNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">ConstantPathOrWriteNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">ConstantPathTargetNode</span>,
+      <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">ConstantPathWriteNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">ConstantReadNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">ConstantTargetNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">ConstantWriteNode</span>,
+      <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">ClassVariableAndWriteNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">ClassVariableOperatorWriteNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">ClassVariableOrWriteNode</span>,
+      <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">ClassVariableReadNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">ClassVariableTargetNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">ClassVariableWriteNode</span>,
+      <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">LocalVariableAndWriteNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">LocalVariableOperatorWriteNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">LocalVariableOrWriteNode</span>,
+      <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">LocalVariableReadNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">LocalVariableTargetNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">LocalVariableWriteNode</span>,
+      <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">CallNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">BlockParameterNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">RequiredKeywordParameterNode</span>,
+      <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">RequiredKeywordParameterNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">KeywordRestParameterNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">OptionalParameterNode</span>,
+      <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">RequiredParameterNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">RestParameterNode</span>
+      <span class="ruby-identifier">target</span>
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@target</span> = <span class="ruby-constant">T</span>.<span class="ruby-identifier">let</span>(<span class="ruby-identifier">highlight_target</span>, <span class="ruby-constant">T</span>.<span class="ruby-identifier">nilable</span>(<span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span>))
+  <span class="ruby-ivar">@target_value</span> = <span class="ruby-constant">T</span>.<span class="ruby-identifier">let</span>(<span class="ruby-identifier">node_value</span>(<span class="ruby-identifier">highlight_target</span>), <span class="ruby-constant">T</span>.<span class="ruby-identifier">nilable</span>(<span class="ruby-constant">String</span>))
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@target</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@target_value</span>
+    <span class="ruby-identifier">dispatcher</span>.<span class="ruby-identifier">register</span>(
+      <span class="ruby-keyword">self</span>,
+      <span class="ruby-value">:on_call_node_enter</span>,
+      <span class="ruby-value">:on_def_node_enter</span>,
+      <span class="ruby-value">:on_global_variable_target_node_enter</span>,
+      <span class="ruby-value">:on_instance_variable_target_node_enter</span>,
+      <span class="ruby-value">:on_constant_path_target_node_enter</span>,
+      <span class="ruby-value">:on_constant_target_node_enter</span>,
+      <span class="ruby-value">:on_class_variable_target_node_enter</span>,
+      <span class="ruby-value">:on_local_variable_target_node_enter</span>,
+      <span class="ruby-value">:on_block_parameter_node_enter</span>,
+      <span class="ruby-value">:on_required_parameter_node_enter</span>,
+      <span class="ruby-value">:on_class_node_enter</span>,
+      <span class="ruby-value">:on_module_node_enter</span>,
+      <span class="ruby-value">:on_local_variable_read_node_enter</span>,
+      <span class="ruby-value">:on_constant_path_node_enter</span>,
+      <span class="ruby-value">:on_constant_read_node_enter</span>,
+      <span class="ruby-value">:on_instance_variable_read_node_enter</span>,
+      <span class="ruby-value">:on_class_variable_read_node_enter</span>,
+      <span class="ruby-value">:on_global_variable_read_node_enter</span>,
+      <span class="ruby-value">:on_constant_path_write_node_enter</span>,
+      <span class="ruby-value">:on_constant_path_or_write_node_enter</span>,
+      <span class="ruby-value">:on_constant_path_and_write_node_enter</span>,
+      <span class="ruby-value">:on_constant_path_operator_write_node_enter</span>,
+      <span class="ruby-value">:on_local_variable_write_node_enter</span>,
+      <span class="ruby-value">:on_required_keyword_parameter_node_enter</span>,
+      <span class="ruby-value">:on_optional_keyword_parameter_node_enter</span>,
+      <span class="ruby-value">:on_rest_parameter_node_enter</span>,
+      <span class="ruby-value">:on_optional_parameter_node_enter</span>,
+      <span class="ruby-value">:on_keyword_rest_parameter_node_enter</span>,
+      <span class="ruby-value">:on_local_variable_and_write_node_enter</span>,
+      <span class="ruby-value">:on_local_variable_operator_write_node_enter</span>,
+      <span class="ruby-value">:on_local_variable_or_write_node_enter</span>,
+      <span class="ruby-value">:on_class_variable_write_node_enter</span>,
+      <span class="ruby-value">:on_class_variable_or_write_node_enter</span>,
+      <span class="ruby-value">:on_class_variable_operator_write_node_enter</span>,
+      <span class="ruby-value">:on_class_variable_and_write_node_enter</span>,
+      <span class="ruby-value">:on_constant_write_node_enter</span>,
+      <span class="ruby-value">:on_constant_or_write_node_enter</span>,
+      <span class="ruby-value">:on_constant_operator_write_node_enter</span>,
+      <span class="ruby-value">:on_instance_variable_write_node_enter</span>,
+      <span class="ruby-value">:on_constant_and_write_node_enter</span>,
+      <span class="ruby-value">:on_instance_variable_or_write_node_enter</span>,
+      <span class="ruby-value">:on_instance_variable_and_write_node_enter</span>,
+      <span class="ruby-value">:on_instance_variable_operator_write_node_enter</span>,
+      <span class="ruby-value">:on_global_variable_write_node_enter</span>,
+      <span class="ruby-value">:on_global_variable_or_write_node_enter</span>,
+      <span class="ruby-value">:on_global_variable_and_write_node_enter</span>,
+      <span class="ruby-value">:on_global_variable_operator_write_node_enter</span>,
+    )
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-on_block_parameter_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_block_parameter_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_block_parameter_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 261</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_block_parameter_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">LOCAL_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">location</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_call_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_call_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_call_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 205</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_call_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, [<span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">CallNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">DefNode</span>])
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">READ</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">location</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_class_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_class_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_class_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 275</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_class_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">CONSTANT_NODES</span> <span class="ruby-operator">+</span> <span class="ruby-constant">CONSTANT_PATH_NODES</span> <span class="ruby-operator">+</span> [<span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">ClassNode</span>])
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">constant_path</span>.<span class="ruby-identifier">location</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_class_variable_and_write_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_class_variable_and_write_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_class_variable_and_write_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 445</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_class_variable_and_write_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">CLASS_VARIABLE_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_class_variable_operator_write_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_class_variable_operator_write_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_class_variable_operator_write_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 438</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_class_variable_operator_write_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">CLASS_VARIABLE_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_class_variable_or_write_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_class_variable_or_write_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_class_variable_or_write_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 431</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_class_variable_or_write_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">CLASS_VARIABLE_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_class_variable_read_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_class_variable_read_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_class_variable_read_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 317</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_class_variable_read_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">CLASS_VARIABLE_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">READ</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">location</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_class_variable_target_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_class_variable_target_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_class_variable_target_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 247</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_class_variable_target_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">CLASS_VARIABLE_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">location</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_class_variable_write_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_class_variable_write_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_class_variable_write_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 424</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_class_variable_write_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">CLASS_VARIABLE_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_constant_and_write_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_constant_and_write_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_constant_and_write_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 501</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_constant_and_write_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">CONSTANT_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_constant_operator_write_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_constant_operator_write_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_constant_operator_write_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 466</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_constant_operator_write_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">CONSTANT_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_constant_or_write_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_constant_or_write_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_constant_or_write_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 459</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_constant_or_write_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">CONSTANT_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_constant_path_and_write_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_constant_path_and_write_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_constant_path_and_write_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 345</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_constant_path_and_write_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">CONSTANT_PATH_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">target</span>.<span class="ruby-identifier">location</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_constant_path_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_constant_path_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_constant_path_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 296</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_constant_path_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">CONSTANT_PATH_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">READ</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">location</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_constant_path_operator_write_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_constant_path_operator_write_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_constant_path_operator_write_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 352</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_constant_path_operator_write_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">CONSTANT_PATH_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">target</span>.<span class="ruby-identifier">location</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_constant_path_or_write_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_constant_path_or_write_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_constant_path_or_write_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 338</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_constant_path_or_write_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">CONSTANT_PATH_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">target</span>.<span class="ruby-identifier">location</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_constant_path_target_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_constant_path_target_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_constant_path_target_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 233</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_constant_path_target_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">CONSTANT_PATH_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">location</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_constant_path_write_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_constant_path_write_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_constant_path_write_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 331</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_constant_path_write_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">CONSTANT_PATH_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">target</span>.<span class="ruby-identifier">location</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_constant_read_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_constant_read_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_constant_read_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 303</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_constant_read_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">CONSTANT_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">READ</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">location</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_constant_target_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_constant_target_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_constant_target_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 240</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_constant_target_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">CONSTANT_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">location</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_constant_write_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_constant_write_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_constant_write_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 452</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_constant_write_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">CONSTANT_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_def_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_def_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_def_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 212</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_def_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, [<span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">CallNode</span>, <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">DefNode</span>])
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_global_variable_and_write_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_global_variable_and_write_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_global_variable_and_write_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 522</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_global_variable_and_write_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">GLOBAL_VARIABLE_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_global_variable_operator_write_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_global_variable_operator_write_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_global_variable_operator_write_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 529</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_global_variable_operator_write_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">GLOBAL_VARIABLE_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_global_variable_or_write_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_global_variable_or_write_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_global_variable_or_write_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 515</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_global_variable_or_write_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">GLOBAL_VARIABLE_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_global_variable_read_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_global_variable_read_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_global_variable_read_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 324</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_global_variable_read_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">GLOBAL_VARIABLE_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">READ</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">location</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_global_variable_target_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_global_variable_target_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_global_variable_target_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 219</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_global_variable_target_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">GLOBAL_VARIABLE_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">location</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_global_variable_write_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_global_variable_write_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_global_variable_write_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 508</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_global_variable_write_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">GLOBAL_VARIABLE_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_instance_variable_and_write_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_instance_variable_and_write_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_instance_variable_and_write_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 487</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_instance_variable_and_write_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">INSTANCE_VARIABLE_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_instance_variable_operator_write_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_instance_variable_operator_write_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_instance_variable_operator_write_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 494</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_instance_variable_operator_write_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">INSTANCE_VARIABLE_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_instance_variable_or_write_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_instance_variable_or_write_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_instance_variable_or_write_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 480</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_instance_variable_or_write_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">INSTANCE_VARIABLE_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_instance_variable_read_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_instance_variable_read_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_instance_variable_read_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 310</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_instance_variable_read_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">INSTANCE_VARIABLE_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">READ</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">location</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_instance_variable_target_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_instance_variable_target_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_instance_variable_target_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 226</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_instance_variable_target_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">INSTANCE_VARIABLE_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">location</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_instance_variable_write_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_instance_variable_write_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_instance_variable_write_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 473</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_instance_variable_write_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">INSTANCE_VARIABLE_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_keyword_rest_parameter_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_keyword_rest_parameter_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_keyword_rest_parameter_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 395</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_keyword_rest_parameter_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">LOCAL_NODES</span>)
+
+  <span class="ruby-identifier">name_loc</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name_loc</span>
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">name_loc</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">name_loc</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_local_variable_and_write_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_local_variable_and_write_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_local_variable_and_write_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 403</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_local_variable_and_write_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">LOCAL_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_local_variable_operator_write_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_local_variable_operator_write_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_local_variable_operator_write_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 410</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_local_variable_operator_write_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">LOCAL_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_local_variable_or_write_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_local_variable_or_write_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_local_variable_or_write_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 417</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_local_variable_or_write_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">LOCAL_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_local_variable_read_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_local_variable_read_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_local_variable_read_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 289</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_local_variable_read_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">LOCAL_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">READ</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">location</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_local_variable_target_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_local_variable_target_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_local_variable_target_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 254</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_local_variable_target_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">LOCAL_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">location</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_local_variable_write_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_local_variable_write_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_local_variable_write_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 359</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_local_variable_write_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">LOCAL_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_module_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_module_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_module_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 282</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_module_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">CONSTANT_NODES</span> <span class="ruby-operator">+</span> <span class="ruby-constant">CONSTANT_PATH_NODES</span> <span class="ruby-operator">+</span> [<span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">ModuleNode</span>])
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">constant_path</span>.<span class="ruby-identifier">location</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_optional_keyword_parameter_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_optional_keyword_parameter_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_optional_keyword_parameter_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 373</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_optional_keyword_parameter_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">LOCAL_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_optional_parameter_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_optional_parameter_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_optional_parameter_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 388</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_optional_parameter_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">LOCAL_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_required_keyword_parameter_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_required_keyword_parameter_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_required_keyword_parameter_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 366</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_required_keyword_parameter_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">LOCAL_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name_loc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_required_parameter_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_required_parameter_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_required_parameter_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 268</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_required_parameter_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">LOCAL_NODES</span>)
+
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">location</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-on_rest_parameter_node_enter" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">on_rest_parameter_node_enter</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="on_rest_parameter_node_enter-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/document_highlight.rb, line 380</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_rest_parameter_node_enter</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-constant">LOCAL_NODES</span>)
+
+  <span class="ruby-identifier">name_loc</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name_loc</span>
+  <span class="ruby-identifier">add_highlight</span>(<span class="ruby-constant">Constant</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentHighlightKind</span><span class="ruby-operator">::</span><span class="ruby-constant">WRITE</span>, <span class="ruby-identifier">name_loc</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">name_loc</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.5.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

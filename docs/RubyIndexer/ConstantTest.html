@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RubyIndexer::ConstantTest - Ruby LSP documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+<div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  <p class="link">TestCase
+</div>
+
+    
+    
+    
+<!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    <li ><a href="#method-i-test_aliasing_namespaces">#test_aliasing_namespaces</a>
+    <li ><a href="#method-i-test_comments_for_constants">#test_comments_for_constants</a>
+    <li ><a href="#method-i-test_constant_or_writes">#test_constant_or_writes</a>
+    <li ><a href="#method-i-test_constant_path_or_writes">#test_constant_path_or_writes</a>
+    <li ><a href="#method-i-test_constant_path_writes">#test_constant_path_writes</a>
+    <li ><a href="#method-i-test_constant_writes">#test_constant_writes</a>
+    <li ><a href="#method-i-test_indexing_constant_aliases">#test_indexing_constant_aliases</a>
+    <li ><a href="#method-i-test_indexing_constant_targets">#test_indexing_constant_targets</a>
+    <li ><a href="#method-i-test_indexing_constant_targets_with_splats">#test_indexing_constant_targets_with_splats</a>
+    <li ><a href="#method-i-test_indexing_destructuring_an_array">#test_indexing_destructuring_an_array</a>
+    <li ><a href="#method-i-test_indexing_or_and_operator_nodes">#test_indexing_or_and_operator_nodes</a>
+    <li ><a href="#method-i-test_indexing_same_line_constant_aliases">#test_indexing_same_line_constant_aliases</a>
+    <li ><a href="#method-i-test_marking_constants_as_private_reopening_namespaces">#test_marking_constants_as_private_reopening_namespaces</a>
+    <li ><a href="#method-i-test_marking_constants_as_private_with_receiver">#test_marking_constants_as_private_with_receiver</a>
+    <li ><a href="#method-i-test_private_constant_indexing">#test_private_constant_indexing</a>
+    <li ><a href="#method-i-test_variable_path_constants_are_ignored">#test_variable_path_constants_are_ignored</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RubyIndexer::ConstantTest">
+  <h1 id="class-RubyIndexer::ConstantTest" class="class">
+    class RubyIndexer::ConstantTest
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section">
+
+
+
+
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-test_aliasing_namespaces" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">test_aliasing_namespaces</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="test_aliasing_namespaces-source">
+            <pre><span class="ruby-comment"># File lib/ruby_indexer/test/constant_test.rb, line 209</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_aliasing_namespaces</span>
+      <span class="ruby-identifier">index</span>(<span class="ruby-identifier">&lt;&lt;~RUBY</span>)
+<span class="ruby-value">        module A
+          module B
+            module C
+            end
+          end
+
+          ALIAS = B
+        end
+
+        module Other
+          ONE_MORE = A::ALIAS
+        end
+</span><span class="ruby-identifier">      RUBY</span>
+
+      <span class="ruby-identifier">unresolve_entry</span> = <span class="ruby-ivar">@index</span>[<span class="ruby-string">&quot;A::ALIAS&quot;</span>].<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">UnresolvedAlias</span>, <span class="ruby-identifier">unresolve_entry</span>)
+      <span class="ruby-identifier">assert_equal</span>([<span class="ruby-string">&quot;A&quot;</span>], <span class="ruby-identifier">unresolve_entry</span>.<span class="ruby-identifier">nesting</span>)
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&quot;B&quot;</span>, <span class="ruby-identifier">unresolve_entry</span>.<span class="ruby-identifier">target</span>)
+
+      <span class="ruby-identifier">resolved_entry</span> = <span class="ruby-ivar">@index</span>.<span class="ruby-identifier">resolve</span>(<span class="ruby-string">&quot;ALIAS&quot;</span>, [<span class="ruby-string">&quot;A&quot;</span>]).<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Alias</span>, <span class="ruby-identifier">resolved_entry</span>)
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&quot;A::B&quot;</span>, <span class="ruby-identifier">resolved_entry</span>.<span class="ruby-identifier">target</span>)
+
+      <span class="ruby-identifier">resolved_entry</span> = <span class="ruby-ivar">@index</span>.<span class="ruby-identifier">resolve</span>(<span class="ruby-string">&quot;ALIAS::C&quot;</span>, [<span class="ruby-string">&quot;A&quot;</span>]).<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Module</span>, <span class="ruby-identifier">resolved_entry</span>)
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&quot;A::B::C&quot;</span>, <span class="ruby-identifier">resolved_entry</span>.<span class="ruby-identifier">name</span>)
+
+      <span class="ruby-identifier">unresolve_entry</span> = <span class="ruby-ivar">@index</span>[<span class="ruby-string">&quot;Other::ONE_MORE&quot;</span>].<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">UnresolvedAlias</span>, <span class="ruby-identifier">unresolve_entry</span>)
+      <span class="ruby-identifier">assert_equal</span>([<span class="ruby-string">&quot;Other&quot;</span>], <span class="ruby-identifier">unresolve_entry</span>.<span class="ruby-identifier">nesting</span>)
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&quot;A::ALIAS&quot;</span>, <span class="ruby-identifier">unresolve_entry</span>.<span class="ruby-identifier">target</span>)
+
+      <span class="ruby-identifier">resolved_entry</span> = <span class="ruby-ivar">@index</span>.<span class="ruby-identifier">resolve</span>(<span class="ruby-string">&quot;Other::ONE_MORE::C&quot;</span>, []).<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Module</span>, <span class="ruby-identifier">resolved_entry</span>)
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_comments_for_constants" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">test_comments_for_constants</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="test_comments_for_constants-source">
+            <pre><span class="ruby-comment"># File lib/ruby_indexer/test/constant_test.rb, line 69</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_comments_for_constants</span>
+      <span class="ruby-identifier">index</span>(<span class="ruby-identifier">&lt;&lt;~RUBY</span>)
+<span class="ruby-value">        # FOO comment
+        FOO = 1
+
+        class A
+          # A::FOO comment
+          FOO = 1
+
+          # ::BAR comment
+          ::BAR = 1
+        end
+
+        # A::BAZ comment
+        A::BAZ = 1
+</span><span class="ruby-identifier">      RUBY</span>
+
+      <span class="ruby-identifier">foo_comment</span> = <span class="ruby-ivar">@index</span>[<span class="ruby-string">&quot;FOO&quot;</span>].<span class="ruby-identifier">first</span>.<span class="ruby-identifier">comments</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&quot;FOO comment&quot;</span>, <span class="ruby-identifier">foo_comment</span>)
+
+      <span class="ruby-identifier">a_foo_comment</span> = <span class="ruby-ivar">@index</span>[<span class="ruby-string">&quot;A::FOO&quot;</span>].<span class="ruby-identifier">first</span>.<span class="ruby-identifier">comments</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&quot;A::FOO comment&quot;</span>, <span class="ruby-identifier">a_foo_comment</span>)
+
+      <span class="ruby-identifier">bar_comment</span> = <span class="ruby-ivar">@index</span>[<span class="ruby-string">&quot;BAR&quot;</span>].<span class="ruby-identifier">first</span>.<span class="ruby-identifier">comments</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&quot;::BAR comment&quot;</span>, <span class="ruby-identifier">bar_comment</span>)
+
+      <span class="ruby-identifier">a_baz_comment</span> = <span class="ruby-ivar">@index</span>[<span class="ruby-string">&quot;A::BAZ&quot;</span>].<span class="ruby-identifier">first</span>.<span class="ruby-identifier">comments</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&quot;A::BAZ comment&quot;</span>, <span class="ruby-identifier">a_baz_comment</span>)
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_constant_or_writes" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">test_constant_or_writes</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="test_constant_or_writes-source">
+            <pre><span class="ruby-comment"># File lib/ruby_indexer/test/constant_test.rb, line 21</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_constant_or_writes</span>
+      <span class="ruby-identifier">index</span>(<span class="ruby-identifier">&lt;&lt;~RUBY</span>)
+<span class="ruby-value">        FOO ||= 1
+
+        class ::Bar
+          FOO ||= 2
+        end
+</span><span class="ruby-identifier">      RUBY</span>
+
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;FOO&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:0-0:0-9&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;Bar::FOO&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:3-2:3-11&quot;</span>)
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_constant_path_or_writes" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">test_constant_path_or_writes</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="test_constant_path_or_writes-source">
+            <pre><span class="ruby-comment"># File lib/ruby_indexer/test/constant_test.rb, line 54</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_constant_path_or_writes</span>
+      <span class="ruby-identifier">index</span>(<span class="ruby-identifier">&lt;&lt;~RUBY</span>)
+<span class="ruby-value">        class A
+          FOO ||= 1
+          ::BAR ||= 1
+        end
+
+        A::BAZ ||= 1
+</span><span class="ruby-identifier">      RUBY</span>
+
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;A::FOO&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:1-2:1-11&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;BAR&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:2-2:2-13&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;A::BAZ&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:5-0:5-12&quot;</span>)
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_constant_path_writes" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">test_constant_path_writes</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="test_constant_path_writes-source">
+            <pre><span class="ruby-comment"># File lib/ruby_indexer/test/constant_test.rb, line 34</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_constant_path_writes</span>
+      <span class="ruby-identifier">index</span>(<span class="ruby-identifier">&lt;&lt;~RUBY</span>)
+<span class="ruby-value">        class A
+          FOO = 1
+          ::BAR = 1
+
+          module B
+            FOO = 1
+          end
+        end
+
+        A::BAZ = 1
+</span><span class="ruby-identifier">      RUBY</span>
+
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;A::FOO&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:1-2:1-9&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;BAR&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:2-2:2-11&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;A::B::FOO&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:5-4:5-11&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;A::BAZ&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:9-0:9-10&quot;</span>)
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_constant_writes" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">test_constant_writes</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="test_constant_writes-source">
+            <pre><span class="ruby-comment"># File lib/ruby_indexer/test/constant_test.rb, line 8</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_constant_writes</span>
+      <span class="ruby-identifier">index</span>(<span class="ruby-identifier">&lt;&lt;~RUBY</span>)
+<span class="ruby-value">        FOO = 1
+
+        class ::Bar
+          FOO = 2
+        end
+</span><span class="ruby-identifier">      RUBY</span>
+
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;FOO&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:0-0:0-7&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;Bar::FOO&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:3-2:3-9&quot;</span>)
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_indexing_constant_aliases" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">test_indexing_constant_aliases</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="test_indexing_constant_aliases-source">
+            <pre><span class="ruby-comment"># File lib/ruby_indexer/test/constant_test.rb, line 185</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_indexing_constant_aliases</span>
+      <span class="ruby-identifier">index</span>(<span class="ruby-identifier">&lt;&lt;~RUBY</span>)
+<span class="ruby-value">        module A
+          module B
+            module C
+            end
+          end
+
+          FIRST = B::C
+        end
+
+        SECOND = A::FIRST
+</span><span class="ruby-identifier">      RUBY</span>
+
+      <span class="ruby-identifier">unresolve_entry</span> = <span class="ruby-ivar">@index</span>[<span class="ruby-string">&quot;A::FIRST&quot;</span>].<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">UnresolvedAlias</span>, <span class="ruby-identifier">unresolve_entry</span>)
+      <span class="ruby-identifier">assert_equal</span>([<span class="ruby-string">&quot;A&quot;</span>], <span class="ruby-identifier">unresolve_entry</span>.<span class="ruby-identifier">nesting</span>)
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&quot;B::C&quot;</span>, <span class="ruby-identifier">unresolve_entry</span>.<span class="ruby-identifier">target</span>)
+
+      <span class="ruby-identifier">resolved_entry</span> = <span class="ruby-ivar">@index</span>.<span class="ruby-identifier">resolve</span>(<span class="ruby-string">&quot;A::FIRST&quot;</span>, []).<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Alias</span>, <span class="ruby-identifier">resolved_entry</span>)
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&quot;A::B::C&quot;</span>, <span class="ruby-identifier">resolved_entry</span>.<span class="ruby-identifier">target</span>)
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_indexing_constant_targets" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">test_indexing_constant_targets</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="test_indexing_constant_targets-source">
+            <pre><span class="ruby-comment"># File lib/ruby_indexer/test/constant_test.rb, line 328</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_indexing_constant_targets</span>
+      <span class="ruby-identifier">index</span>(<span class="ruby-identifier">&lt;&lt;~RUBY</span>)
+<span class="ruby-value">        module A
+          B, C = [1, Y]
+          D::E, F::G = [Z, 4]
+          H, I::J = [5, B]
+          K, L = C
+        end
+
+        module Real
+          Z = 1
+          Y = 2
+        end
+</span><span class="ruby-identifier">      RUBY</span>
+
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;A::B&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:1-2:1-3&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;A::C&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">UnresolvedAlias</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:1-5:1-6&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;A::D::E&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">UnresolvedAlias</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:2-2:2-6&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;A::F::G&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:2-8:2-12&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;A::H&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:3-2:3-3&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;A::I::J&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">UnresolvedAlias</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:3-5:3-9&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;A::K&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:4-2:4-3&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;A::L&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:4-5:4-6&quot;</span>)
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_indexing_constant_targets_with_splats" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">test_indexing_constant_targets_with_splats</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="test_indexing_constant_targets_with_splats-source">
+            <pre><span class="ruby-comment"># File lib/ruby_indexer/test/constant_test.rb, line 353</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_indexing_constant_targets_with_splats</span>
+      <span class="ruby-identifier">index</span>(<span class="ruby-identifier">&lt;&lt;~RUBY</span>)
+<span class="ruby-value">        A, *, B = baz
+        C, = bar
+        (D, E) = baz
+        F, G = *baz, qux
+        H, I = [baz, *qux]
+        J, L = [*something, String]
+        M = [String]
+</span><span class="ruby-identifier">      RUBY</span>
+
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;A&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:0-0:0-1&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;B&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:0-6:0-7&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;D&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:2-1:2-2&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;E&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:2-4:2-5&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;F&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:3-0:3-1&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;G&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:3-3:3-4&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;H&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:4-0:4-1&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;I&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:4-3:4-4&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;J&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:5-0:5-1&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;L&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:5-3:5-4&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;M&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:6-0:6-12&quot;</span>)
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_indexing_destructuring_an_array" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">test_indexing_destructuring_an_array</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="test_indexing_destructuring_an_array-source">
+            <pre><span class="ruby-comment"># File lib/ruby_indexer/test/constant_test.rb, line 377</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_indexing_destructuring_an_array</span>
+      <span class="ruby-identifier">index</span>(<span class="ruby-identifier">&lt;&lt;~RUBY</span>)
+<span class="ruby-value">        Baz = [1, 2]
+        Foo, Bar = Baz
+        This, That = foo, bar
+</span><span class="ruby-identifier">      RUBY</span>
+
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;Baz&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:0-0:0-12&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;Foo&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:1-0:1-3&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;Bar&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:1-5:1-8&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;This&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:2-0:2-4&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;That&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:2-6:2-10&quot;</span>)
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_indexing_or_and_operator_nodes" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">test_indexing_or_and_operator_nodes</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="test_indexing_or_and_operator_nodes-source">
+            <pre><span class="ruby-comment"># File lib/ruby_indexer/test/constant_test.rb, line 310</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_indexing_or_and_operator_nodes</span>
+      <span class="ruby-identifier">index</span>(<span class="ruby-identifier">&lt;&lt;~RUBY</span>)
+<span class="ruby-value">        A ||= 1
+        B &amp;&amp;= 2
+        C &amp;= 3
+        D::E ||= 4
+        F::G &amp;&amp;= 5
+        H::I &amp;= 6
+</span><span class="ruby-identifier">      RUBY</span>
+
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;A&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:0-0:0-7&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;B&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:1-0:1-7&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;C&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:2-0:2-6&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;D::E&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:3-0:3-10&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;F::G&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:4-0:4-10&quot;</span>)
+      <span class="ruby-identifier">assert_entry</span>(<span class="ruby-string">&quot;H::I&quot;</span>, <span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-string">&quot;/fake/path/foo.rb:5-0:5-9&quot;</span>)
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_indexing_same_line_constant_aliases" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">test_indexing_same_line_constant_aliases</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="test_indexing_same_line_constant_aliases-source">
+            <pre><span class="ruby-comment"># File lib/ruby_indexer/test/constant_test.rb, line 247</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_indexing_same_line_constant_aliases</span>
+      <span class="ruby-identifier">index</span>(<span class="ruby-identifier">&lt;&lt;~RUBY</span>)
+<span class="ruby-value">        module A
+          B = C = 1
+          D = E ||= 1
+          F = G::H &amp;&amp;= 1
+          I::J = K::L = M = 1
+        end
+</span><span class="ruby-identifier">      RUBY</span>
+
+      <span class="ruby-comment"># B and C</span>
+      <span class="ruby-identifier">unresolve_entry</span> = <span class="ruby-ivar">@index</span>[<span class="ruby-string">&quot;A::B&quot;</span>].<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">UnresolvedAlias</span>, <span class="ruby-identifier">unresolve_entry</span>)
+      <span class="ruby-identifier">assert_equal</span>([<span class="ruby-string">&quot;A&quot;</span>], <span class="ruby-identifier">unresolve_entry</span>.<span class="ruby-identifier">nesting</span>)
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&quot;C&quot;</span>, <span class="ruby-identifier">unresolve_entry</span>.<span class="ruby-identifier">target</span>)
+
+      <span class="ruby-identifier">resolved_entry</span> = <span class="ruby-ivar">@index</span>.<span class="ruby-identifier">resolve</span>(<span class="ruby-string">&quot;A::B&quot;</span>, []).<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Alias</span>, <span class="ruby-identifier">resolved_entry</span>)
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&quot;A::C&quot;</span>, <span class="ruby-identifier">resolved_entry</span>.<span class="ruby-identifier">target</span>)
+
+      <span class="ruby-identifier">constant</span> = <span class="ruby-ivar">@index</span>[<span class="ruby-string">&quot;A::C&quot;</span>].<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-identifier">constant</span>)
+
+      <span class="ruby-comment"># D and E</span>
+      <span class="ruby-identifier">unresolve_entry</span> = <span class="ruby-ivar">@index</span>[<span class="ruby-string">&quot;A::D&quot;</span>].<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">UnresolvedAlias</span>, <span class="ruby-identifier">unresolve_entry</span>)
+      <span class="ruby-identifier">assert_equal</span>([<span class="ruby-string">&quot;A&quot;</span>], <span class="ruby-identifier">unresolve_entry</span>.<span class="ruby-identifier">nesting</span>)
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&quot;E&quot;</span>, <span class="ruby-identifier">unresolve_entry</span>.<span class="ruby-identifier">target</span>)
+
+      <span class="ruby-identifier">resolved_entry</span> = <span class="ruby-ivar">@index</span>.<span class="ruby-identifier">resolve</span>(<span class="ruby-string">&quot;A::D&quot;</span>, []).<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Alias</span>, <span class="ruby-identifier">resolved_entry</span>)
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&quot;A::E&quot;</span>, <span class="ruby-identifier">resolved_entry</span>.<span class="ruby-identifier">target</span>)
+
+      <span class="ruby-comment"># F and G::H</span>
+      <span class="ruby-identifier">unresolve_entry</span> = <span class="ruby-ivar">@index</span>[<span class="ruby-string">&quot;A::F&quot;</span>].<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">UnresolvedAlias</span>, <span class="ruby-identifier">unresolve_entry</span>)
+      <span class="ruby-identifier">assert_equal</span>([<span class="ruby-string">&quot;A&quot;</span>], <span class="ruby-identifier">unresolve_entry</span>.<span class="ruby-identifier">nesting</span>)
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&quot;G::H&quot;</span>, <span class="ruby-identifier">unresolve_entry</span>.<span class="ruby-identifier">target</span>)
+
+      <span class="ruby-identifier">resolved_entry</span> = <span class="ruby-ivar">@index</span>.<span class="ruby-identifier">resolve</span>(<span class="ruby-string">&quot;A::F&quot;</span>, []).<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Alias</span>, <span class="ruby-identifier">resolved_entry</span>)
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&quot;A::G::H&quot;</span>, <span class="ruby-identifier">resolved_entry</span>.<span class="ruby-identifier">target</span>)
+
+      <span class="ruby-comment"># I::J, K::L and M</span>
+      <span class="ruby-identifier">unresolve_entry</span> = <span class="ruby-ivar">@index</span>[<span class="ruby-string">&quot;A::I::J&quot;</span>].<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">UnresolvedAlias</span>, <span class="ruby-identifier">unresolve_entry</span>)
+      <span class="ruby-identifier">assert_equal</span>([<span class="ruby-string">&quot;A&quot;</span>], <span class="ruby-identifier">unresolve_entry</span>.<span class="ruby-identifier">nesting</span>)
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&quot;K::L&quot;</span>, <span class="ruby-identifier">unresolve_entry</span>.<span class="ruby-identifier">target</span>)
+
+      <span class="ruby-identifier">resolved_entry</span> = <span class="ruby-ivar">@index</span>.<span class="ruby-identifier">resolve</span>(<span class="ruby-string">&quot;A::I::J&quot;</span>, []).<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Alias</span>, <span class="ruby-identifier">resolved_entry</span>)
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&quot;A::K::L&quot;</span>, <span class="ruby-identifier">resolved_entry</span>.<span class="ruby-identifier">target</span>)
+
+      <span class="ruby-comment"># When we are resolving A::I::J, we invoke `resolve(&quot;K::L&quot;, [&quot;A&quot;])`, which recursively resolves A::K::L too.</span>
+      <span class="ruby-comment"># Therefore, both A::I::J and A::K::L point to A::M by the end of the previous resolve invocation</span>
+      <span class="ruby-identifier">resolved_entry</span> = <span class="ruby-ivar">@index</span>[<span class="ruby-string">&quot;A::K::L&quot;</span>].<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Alias</span>, <span class="ruby-identifier">resolved_entry</span>)
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&quot;A::M&quot;</span>, <span class="ruby-identifier">resolved_entry</span>.<span class="ruby-identifier">target</span>)
+
+      <span class="ruby-identifier">constant</span> = <span class="ruby-ivar">@index</span>[<span class="ruby-string">&quot;A::M&quot;</span>].<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">Entry</span><span class="ruby-operator">::</span><span class="ruby-constant">Constant</span>, <span class="ruby-identifier">constant</span>)
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_marking_constants_as_private_reopening_namespaces" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">test_marking_constants_as_private_reopening_namespaces</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="test_marking_constants_as_private_reopening_namespaces-source">
+            <pre><span class="ruby-comment"># File lib/ruby_indexer/test/constant_test.rb, line 131</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_marking_constants_as_private_reopening_namespaces</span>
+      <span class="ruby-identifier">index</span>(<span class="ruby-identifier">&lt;&lt;~RUBY</span>)
+<span class="ruby-value">        module A
+          module B
+            CONST_A = 1
+            private_constant(:CONST_A)
+
+            CONST_B = 2
+            CONST_C = 3
+          end
+
+          module B
+            private_constant(:CONST_B)
+          end
+        end
+
+        module A
+          module B
+            private_constant(:CONST_C)
+          end
+        end
+</span><span class="ruby-identifier">      RUBY</span>
+
+      <span class="ruby-identifier">a_const</span> = <span class="ruby-ivar">@index</span>[<span class="ruby-string">&quot;A::B::CONST_A&quot;</span>].<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">:private</span>, <span class="ruby-identifier">a_const</span>.<span class="ruby-identifier">visibility</span>)
+
+      <span class="ruby-identifier">b_const</span> = <span class="ruby-ivar">@index</span>[<span class="ruby-string">&quot;A::B::CONST_B&quot;</span>].<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">:private</span>, <span class="ruby-identifier">b_const</span>.<span class="ruby-identifier">visibility</span>)
+
+      <span class="ruby-identifier">c_const</span> = <span class="ruby-ivar">@index</span>[<span class="ruby-string">&quot;A::B::CONST_C&quot;</span>].<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">:private</span>, <span class="ruby-identifier">c_const</span>.<span class="ruby-identifier">visibility</span>)
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_marking_constants_as_private_with_receiver" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">test_marking_constants_as_private_with_receiver</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="test_marking_constants_as_private_with_receiver-source">
+            <pre><span class="ruby-comment"># File lib/ruby_indexer/test/constant_test.rb, line 164</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_marking_constants_as_private_with_receiver</span>
+      <span class="ruby-identifier">index</span>(<span class="ruby-identifier">&lt;&lt;~RUBY</span>)
+<span class="ruby-value">        module A
+          module B
+            CONST_A = 1
+            CONST_B = 2
+          end
+
+          B.private_constant(:CONST_A)
+        end
+
+        A::B.private_constant(:CONST_B)
+</span><span class="ruby-identifier">      RUBY</span>
+
+      <span class="ruby-identifier">a_const</span> = <span class="ruby-ivar">@index</span>[<span class="ruby-string">&quot;A::B::CONST_A&quot;</span>].<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">:private</span>, <span class="ruby-identifier">a_const</span>.<span class="ruby-identifier">visibility</span>)
+
+      <span class="ruby-identifier">b_const</span> = <span class="ruby-ivar">@index</span>[<span class="ruby-string">&quot;A::B::CONST_B&quot;</span>].<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">:private</span>, <span class="ruby-identifier">b_const</span>.<span class="ruby-identifier">visibility</span>)
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_private_constant_indexing" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">test_private_constant_indexing</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="test_private_constant_indexing-source">
+            <pre><span class="ruby-comment"># File lib/ruby_indexer/test/constant_test.rb, line 108</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_private_constant_indexing</span>
+      <span class="ruby-identifier">index</span>(<span class="ruby-identifier">&lt;&lt;~RUBY</span>)
+<span class="ruby-value">        class A
+          B = 1
+          private_constant(:B)
+
+          C = 2
+          private_constant(&quot;C&quot;)
+
+          D = 1
+        end
+</span><span class="ruby-identifier">      RUBY</span>
+
+      <span class="ruby-identifier">b_const</span> = <span class="ruby-ivar">@index</span>[<span class="ruby-string">&quot;A::B&quot;</span>].<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">:private</span>, <span class="ruby-identifier">b_const</span>.<span class="ruby-identifier">visibility</span>)
+
+      <span class="ruby-identifier">c_const</span> = <span class="ruby-ivar">@index</span>[<span class="ruby-string">&quot;A::C&quot;</span>].<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">:private</span>, <span class="ruby-identifier">c_const</span>.<span class="ruby-identifier">visibility</span>)
+
+      <span class="ruby-identifier">d_const</span> = <span class="ruby-ivar">@index</span>[<span class="ruby-string">&quot;A::D&quot;</span>].<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">:public</span>, <span class="ruby-identifier">d_const</span>.<span class="ruby-identifier">visibility</span>)
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_variable_path_constants_are_ignored" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">test_variable_path_constants_are_ignored</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="test_variable_path_constants_are_ignored-source">
+            <pre><span class="ruby-comment"># File lib/ruby_indexer/test/constant_test.rb, line 99</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_variable_path_constants_are_ignored</span>
+      <span class="ruby-identifier">index</span>(<span class="ruby-identifier">&lt;&lt;~RUBY</span>)
+<span class="ruby-value">        var::FOO = 1
+        self.class::FOO = 1
+</span><span class="ruby-identifier">      RUBY</span>
+
+      <span class="ruby-identifier">assert_no_entries</span>
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.5.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

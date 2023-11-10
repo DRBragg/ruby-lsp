@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module RubyLsp::Requests::Support::Common - Ruby LSP documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/navigation.js" defer></script>
+<script src="../../../js/search.js" defer></script>
+<script src="../../../js/search_index.js" defer></script>
+<script src="../../../js/searcher.js" defer></script>
+<script src="../../../js/darkfish.js" defer></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+<div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    <li><span class="extend">T::Sig</span>
+  </ul>
+</div>
+
+    
+<!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    <li ><a href="#method-i-create_code_lens">#create_code_lens</a>
+    <li ><a href="#method-i-markdown_from_index_entries">#markdown_from_index_entries</a>
+    <li ><a href="#method-i-range_from_location">#range_from_location</a>
+    <li ><a href="#method-i-range_from_node">#range_from_node</a>
+    <li ><a href="#method-i-visible-3F">#visible?</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-RubyLsp::Requests::Support::Common">
+  <h1 id="module-RubyLsp::Requests::Support::Common" class="module">
+    module RubyLsp::Requests::Support::Common
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section">
+
+
+
+
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-create_code_lens" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">create_code_lens</span><span
+              class="method-args">(node, title:, command_name:, arguments:, data:)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="create_code_lens-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/support/common.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create_code_lens</span>(<span class="ruby-identifier">node</span>, <span class="ruby-value">title:</span>, <span class="ruby-value">command_name:</span>, <span class="ruby-value">arguments:</span>, <span class="ruby-value">data:</span>)
+  <span class="ruby-identifier">range</span> = <span class="ruby-identifier">range_from_node</span>(<span class="ruby-identifier">node</span>)
+
+  <span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-constant">CodeLens</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-value">range:</span> <span class="ruby-identifier">range</span>,
+    <span class="ruby-value">command:</span> <span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-constant">Command</span>.<span class="ruby-identifier">new</span>(
+      <span class="ruby-value">title:</span> <span class="ruby-identifier">title</span>,
+      <span class="ruby-value">command:</span> <span class="ruby-identifier">command_name</span>,
+      <span class="ruby-value">arguments:</span> <span class="ruby-identifier">arguments</span>,
+    ),
+    <span class="ruby-value">data:</span> <span class="ruby-identifier">data</span>,
+  )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-markdown_from_index_entries" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">markdown_from_index_entries</span><span
+              class="method-args">(title, entries)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="markdown_from_index_entries-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/support/common.rb, line 70</span>
+        <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">markdown_from_index_entries</span>(<span class="ruby-identifier">title</span>, <span class="ruby-identifier">entries</span>)
+          <span class="ruby-identifier">markdown_title</span> = <span class="ruby-node">&quot;```ruby\n#{title}\n```&quot;</span>
+          <span class="ruby-identifier">definitions</span> = []
+          <span class="ruby-identifier">content</span> = <span class="ruby-string">+&quot;&quot;</span>
+          <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">loc</span> = <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">location</span>
+
+            <span class="ruby-comment"># We always handle locations as zero based. However, for file links in Markdown we need them to be one</span>
+            <span class="ruby-comment"># based, which is why instead of the usual subtraction of 1 to line numbers, we are actually adding 1 to</span>
+            <span class="ruby-comment"># columns. The format for VS Code file URIs is</span>
+            <span class="ruby-comment"># `file:///path/to/file.rb#Lstart_line,start_column-end_line,end_column`</span>
+            <span class="ruby-identifier">uri</span> = <span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-constant">Generic</span>.<span class="ruby-identifier">from_path</span>(
+              <span class="ruby-value">path:</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">file_path</span>,
+              <span class="ruby-value">fragment:</span> <span class="ruby-node">&quot;L#{loc.start_line},#{loc.start_column + 1}-#{loc.end_line},#{loc.end_column + 1}&quot;</span>,
+            )
+
+            <span class="ruby-identifier">definitions</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;[#{entry.file_name}](#{uri})&quot;</span>
+            <span class="ruby-identifier">content</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;\n\n#{entry.comments.join(&quot;\n&quot;)}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">comments</span>.<span class="ruby-identifier">empty?</span>
+          <span class="ruby-keyword">end</span>
+
+          <span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-constant">MarkupContent</span>.<span class="ruby-identifier">new</span>(
+            <span class="ruby-value">kind:</span> <span class="ruby-string">&quot;markdown&quot;</span>,
+            <span class="ruby-value">value:</span> <span class="ruby-identifier">&lt;&lt;~MARKDOWN</span>.<span class="ruby-identifier">chomp</span>,
+<span class="ruby-value">              #{markdown_title}
+
+              **Definitions**: #{definitions.join(&quot; | &quot;)}
+
+              #{content}
+</span><span class="ruby-identifier">            MARKDOWN</span>
+          )
+        <span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-range_from_location" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">range_from_location</span><span
+              class="method-args">(location)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="range_from_location-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/support/common.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">range_from_location</span>(<span class="ruby-identifier">location</span>)
+  <span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-constant">Range</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-value">start:</span> <span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-constant">Position</span>.<span class="ruby-identifier">new</span>(
+      <span class="ruby-value">line:</span> <span class="ruby-identifier">location</span>.<span class="ruby-identifier">start_line</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>,
+      <span class="ruby-value">character:</span> <span class="ruby-identifier">location</span>.<span class="ruby-identifier">start_column</span>,
+    ),
+    <span class="ruby-value">end:</span> <span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-constant">Position</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">line:</span> <span class="ruby-identifier">location</span>.<span class="ruby-identifier">end_line</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>, <span class="ruby-value">character:</span> <span class="ruby-identifier">location</span>.<span class="ruby-identifier">end_column</span>),
+  )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-range_from_node" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">range_from_node</span><span
+              class="method-args">(node)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="range_from_node-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/support/common.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">range_from_node</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">loc</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">location</span>
+
+  <span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-constant">Range</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-value">start:</span> <span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-constant">Position</span>.<span class="ruby-identifier">new</span>(
+      <span class="ruby-value">line:</span> <span class="ruby-identifier">loc</span>.<span class="ruby-identifier">start_line</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>,
+      <span class="ruby-value">character:</span> <span class="ruby-identifier">loc</span>.<span class="ruby-identifier">start_column</span>,
+    ),
+    <span class="ruby-value">end:</span> <span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-constant">Position</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">line:</span> <span class="ruby-identifier">loc</span>.<span class="ruby-identifier">end_line</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>, <span class="ruby-value">character:</span> <span class="ruby-identifier">loc</span>.<span class="ruby-identifier">end_column</span>),
+  )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-visible-3F" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">visible?</span><span
+              class="method-args">(node, range)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="visible-3F-source">
+            <pre><span class="ruby-comment"># File lib/ruby_lsp/requests/support/common.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">visible?</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">range</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">range</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-identifier">loc</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">location</span>
+  <span class="ruby-identifier">range</span>.<span class="ruby-identifier">cover?</span>(<span class="ruby-identifier">loc</span>.<span class="ruby-identifier">start_line</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">range</span>.<span class="ruby-identifier">cover?</span>(<span class="ruby-identifier">loc</span>.<span class="ruby-identifier">end_line</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.5.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

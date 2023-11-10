@@ -1,0 +1,2407 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Table of Contents - Ruby LSP documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" class="table-of-contents">
+<main role="main">
+<h1 class="class">Table of Contents - Ruby LSP documentation</h1>
+
+<h2 id="pages">Pages</h2>
+<ul>
+  <li class="file">
+    <a href="ADDONS_md.html">ADDONS</a>
+
+    <ul>
+      <li><a href="ADDONS_md.html#label-Ruby+LSP+addons">Ruby LSP addons</a>
+      <li><a href="ADDONS_md.html#label-Motivation+and+goals">Motivation and goals</a>
+      <li><a href="ADDONS_md.html#label-Guidelines">Guidelines</a>
+      <li><a href="ADDONS_md.html#label-Building+a+Ruby+LSP+addon">Building a Ruby LSP addon</a>
+      <li><a href="ADDONS_md.html#label-Activating+the+addon">Activating the addon</a>
+      <li><a href="ADDONS_md.html#label-Enhancing+features">Enhancing features</a>
+      <li><a href="ADDONS_md.html#label-Registering+formatters">Registering formatters</a>
+      <li><a href="ADDONS_md.html#label-Sending+notifications+to+the+client">Sending notifications to the client</a>
+      <li><a href="ADDONS_md.html#label-Ensuring+consistent+documentation">Ensuring consistent documentation</a>
+      <li><a href="ADDONS_md.html#label-Dependency+constraints">Dependency constraints</a>
+      <li><a href="ADDONS_md.html#label-Testing+addons">Testing addons</a>
+    </ul>
+  </li>
+  <li class="file">
+    <a href="CODE_OF_CONDUCT_md.html">CODE_OF_CONDUCT</a>
+
+    <ul>
+      <li><a href="CODE_OF_CONDUCT_md.html#label-Contributor+Covenant+Code+of+Conduct">Contributor Covenant Code of Conduct</a>
+      <li><a href="CODE_OF_CONDUCT_md.html#label-Our+Pledge">Our Pledge</a>
+      <li><a href="CODE_OF_CONDUCT_md.html#label-Our+Standards">Our Standards</a>
+      <li><a href="CODE_OF_CONDUCT_md.html#label-Our+Responsibilities">Our Responsibilities</a>
+      <li><a href="CODE_OF_CONDUCT_md.html#label-Scope">Scope</a>
+      <li><a href="CODE_OF_CONDUCT_md.html#label-Enforcement">Enforcement</a>
+      <li><a href="CODE_OF_CONDUCT_md.html#label-Attribution">Attribution</a>
+    </ul>
+  </li>
+  <li class="file">
+    <a href="CONTRIBUTING_md.html">CONTRIBUTING</a>
+
+    <ul>
+      <li><a href="CONTRIBUTING_md.html#label-CONTRIBUTING">CONTRIBUTING</a>
+      <li><a href="CONTRIBUTING_md.html#label-Manually+testing+a+change">Manually testing a change</a>
+      <li><a href="CONTRIBUTING_md.html#label-Running+the+test+suite">Running the test suite</a>
+      <li><a href="CONTRIBUTING_md.html#label-Expectation+testing">Expectation testing</a>
+      <li><a href="CONTRIBUTING_md.html#label-Debugging+with+VS+Code">Debugging with VS Code</a>
+      <li><a href="CONTRIBUTING_md.html#label-Debugging+Tests">Debugging Tests</a>
+      <li><a href="CONTRIBUTING_md.html#label-Debugging+Running+Ruby+LSP+Process">Debugging Running Ruby LSP Process</a>
+      <li><a href="CONTRIBUTING_md.html#label-Screen+Captures">Screen Captures</a>
+      <li><a href="CONTRIBUTING_md.html#label-Spell+Checking">Spell Checking</a>
+    </ul>
+  </li>
+  <li class="file">
+    <a href="EDITORS_md.html">EDITORS</a>
+
+    <ul>
+      <li><a href="EDITORS_md.html#label-Editors">Editors</a>
+      <li><a href="EDITORS_md.html#label-Emacs+Eglot">Emacs Eglot</a>
+      <li><a href="EDITORS_md.html#label-Neovim+LSP">Neovim LSP</a>
+      <li><a href="EDITORS_md.html#label-Sublime+Text+LSP">Sublime Text LSP</a>
+    </ul>
+  </li>
+  <li class="file">
+    <a href="README_md.html">README</a>
+
+    <ul>
+      <li><a href="README_md.html#label-Ruby+LSP">Ruby LSP</a>
+      <li><a href="README_md.html#label-Usage">Usage</a>
+      <li><a href="README_md.html#label-With+VS+Code">With VS Code</a>
+      <li><a href="README_md.html#label-With+other+editors">With other editors</a>
+      <li><a href="README_md.html#label-Documentation">Documentation</a>
+      <li><a href="README_md.html#label-Addons">Addons</a>
+      <li><a href="README_md.html#label-Learn+More">Learn More</a>
+      <li><a href="README_md.html#label-Contributing">Contributing</a>
+      <li><a href="README_md.html#label-License">License</a>
+    </ul>
+  </li>
+  <li class="file">
+    <a href="SEMANTIC_HIGHLIGHTING_md.html">SEMANTIC_HIGHLIGHTING</a>
+
+    <ul>
+      <li><a href="SEMANTIC_HIGHLIGHTING_md.html#label-Semantic+highlighting">Semantic highlighting</a>
+      <li><a href="SEMANTIC_HIGHLIGHTING_md.html#label-Token+types">Token types</a>
+      <li><a href="SEMANTIC_HIGHLIGHTING_md.html#label-Token+list">Token list</a>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="classes">Classes and Modules</h2>
+<ul>
+  <li class="module">
+    <a href="RuboCop.html">RuboCop</a>
+  </li>
+  <li class="module">
+    <a href="RuboCop/Cop.html">RuboCop::Cop</a>
+  </li>
+  <li class="module">
+    <a href="RuboCop/Cop/RubyLsp.html">RuboCop::Cop::RubyLsp</a>
+  </li>
+  <li class="class">
+    <a href="RuboCop/Cop/RubyLsp/UseLanguageServerAliases.html">RuboCop::Cop::RubyLsp::UseLanguageServerAliases</a>
+  </li>
+  <li class="class">
+    <a href="RuboCop/Cop/RubyLsp/UseRegisterWithHandlerMethod.html">RuboCop::Cop::RubyLsp::UseRegisterWithHandlerMethod</a>
+
+    <ul>
+      <li><a href="RuboCop/Cop/RubyLsp/UseRegisterWithHandlerMethod.html#label-Register+without+handler+method.">Register without handler method.</a>
+      <li><a href="RuboCop/Cop/RubyLsp/UseRegisterWithHandlerMethod.html#label-bad">bad</a>
+      <li><a href="RuboCop/Cop/RubyLsp/UseRegisterWithHandlerMethod.html#label-good">good</a>
+      <li><a href="RuboCop/Cop/RubyLsp/UseRegisterWithHandlerMethod.html#label-Handler+method+without+register.">Handler method without register.</a>
+      <li><a href="RuboCop/Cop/RubyLsp/UseRegisterWithHandlerMethod.html#label-bad">bad</a>
+      <li><a href="RuboCop/Cop/RubyLsp/UseRegisterWithHandlerMethod.html#label-good">good</a>
+    </ul>
+  </li>
+  <li class="module">
+    <a href="RubyIndexer.html">RubyIndexer</a>
+  </li>
+  <li class="class">
+    <a href="RubyIndexer/ClassesAndModulesTest.html">RubyIndexer::ClassesAndModulesTest</a>
+  </li>
+  <li class="class">
+    <a href="RubyIndexer/Collector.html">RubyIndexer::Collector</a>
+  </li>
+  <li class="class">
+    <a href="RubyIndexer/Configuration.html">RubyIndexer::Configuration</a>
+  </li>
+  <li class="class">
+    <a href="RubyIndexer/ConfigurationTest.html">RubyIndexer::ConfigurationTest</a>
+  </li>
+  <li class="class">
+    <a href="RubyIndexer/ConstantTest.html">RubyIndexer::ConstantTest</a>
+  </li>
+  <li class="class">
+    <a href="RubyIndexer/Entry.html">RubyIndexer::Entry</a>
+  </li>
+  <li class="class">
+    <a href="RubyIndexer/Entry/Alias.html">RubyIndexer::Entry::Alias</a>
+  </li>
+  <li class="class">
+    <a href="RubyIndexer/Entry/Class.html">RubyIndexer::Entry::Class</a>
+  </li>
+  <li class="class">
+    <a href="RubyIndexer/Entry/Constant.html">RubyIndexer::Entry::Constant</a>
+  </li>
+  <li class="class">
+    <a href="RubyIndexer/Entry/InstanceMethod.html">RubyIndexer::Entry::InstanceMethod</a>
+  </li>
+  <li class="class">
+    <a href="RubyIndexer/Entry/Method.html">RubyIndexer::Entry::Method</a>
+  </li>
+  <li class="class">
+    <a href="RubyIndexer/Entry/Module.html">RubyIndexer::Entry::Module</a>
+  </li>
+  <li class="class">
+    <a href="RubyIndexer/Entry/Namespace.html">RubyIndexer::Entry::Namespace</a>
+  </li>
+  <li class="class">
+    <a href="RubyIndexer/Entry/Parameter.html">RubyIndexer::Entry::Parameter</a>
+  </li>
+  <li class="class">
+    <a href="RubyIndexer/Entry/RequiredParameter.html">RubyIndexer::Entry::RequiredParameter</a>
+  </li>
+  <li class="class">
+    <a href="RubyIndexer/Entry/SingletonMethod.html">RubyIndexer::Entry::SingletonMethod</a>
+  </li>
+  <li class="class">
+    <a href="RubyIndexer/Entry/UnresolvedAlias.html">RubyIndexer::Entry::UnresolvedAlias</a>
+  </li>
+  <li class="class">
+    <a href="RubyIndexer/Index.html">RubyIndexer::Index</a>
+  </li>
+  <li class="class">
+    <a href="RubyIndexer/Index/UnresolvableAliasError.html">RubyIndexer::Index::UnresolvableAliasError</a>
+  </li>
+  <li class="class">
+    <a href="RubyIndexer/IndexTest.html">RubyIndexer::IndexTest</a>
+  </li>
+  <li class="class">
+    <a href="RubyIndexer/IndexablePath.html">RubyIndexer::IndexablePath</a>
+  </li>
+  <li class="class">
+    <a href="RubyIndexer/MethodTest.html">RubyIndexer::MethodTest</a>
+  </li>
+  <li class="class">
+    <a href="RubyIndexer/PrefixTree.html">RubyIndexer::PrefixTree</a>
+
+    <ul>
+      <li><a href="RubyIndexer/PrefixTree.html#label-Example">Example</a>
+    </ul>
+  </li>
+  <li class="class">
+    <a href="RubyIndexer/PrefixTree/Node.html">RubyIndexer::PrefixTree::Node</a>
+  </li>
+  <li class="class">
+    <a href="RubyIndexer/PrefixTreeTest.html">RubyIndexer::PrefixTreeTest</a>
+  </li>
+  <li class="class">
+    <a href="RubyIndexer/TestCase.html">RubyIndexer::TestCase</a>
+  </li>
+  <li class="module">
+    <a href="RubyLsp.html">RubyLsp</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Addon.html">RubyLsp::Addon</a>
+
+    <ul>
+      <li><a href="RubyLsp/Addon.html#label-Example">Example</a>
+    </ul>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/CheckDocs.html">RubyLsp::CheckDocs</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/DependencyDetector.html">RubyLsp::DependencyDetector</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Document.html">RubyLsp::Document</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Document/Scanner.html">RubyLsp::Document::Scanner</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Executor.html">RubyLsp::Executor</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/ExtensibleListener.html">RubyLsp::ExtensibleListener</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Job.html">RubyLsp::Job</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Listener.html">RubyLsp::Listener</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Message.html">RubyLsp::Message</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Notification.html">RubyLsp::Notification</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/ParameterScope.html">RubyLsp::ParameterScope</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Request.html">RubyLsp::Request</a>
+  </li>
+  <li class="module">
+    <a href="RubyLsp/Requests.html">RubyLsp::Requests</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/BaseRequest.html">RubyLsp::Requests::BaseRequest</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/CodeActionResolve.html">RubyLsp::Requests::CodeActionResolve</a>
+
+    <ul>
+      <li><a href="RubyLsp/Requests/CodeActionResolve.html#label-Example-3A+Extract+to+variable">Example: Extract to variable</a>
+    </ul>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/CodeActionResolve/CodeActionError.html">RubyLsp::Requests::CodeActionResolve::CodeActionError</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/CodeActionResolve/Error.html">RubyLsp::Requests::CodeActionResolve::Error</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/CodeActions.html">RubyLsp::Requests::CodeActions</a>
+
+    <ul>
+      <li><a href="RubyLsp/Requests/CodeActions.html#label-Example">Example</a>
+    </ul>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/CodeLens.html">RubyLsp::Requests::CodeLens</a>
+
+    <ul>
+      <li><a href="RubyLsp/Requests/CodeLens.html#label-Example">Example</a>
+    </ul>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/Completion.html">RubyLsp::Requests::Completion</a>
+
+    <ul>
+      <li><a href="RubyLsp/Requests/Completion.html#label-Example">Example</a>
+    </ul>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/Definition.html">RubyLsp::Requests::Definition</a>
+
+    <ul>
+      <li><a href="RubyLsp/Requests/Definition.html#label-Example">Example</a>
+    </ul>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/Diagnostics.html">RubyLsp::Requests::Diagnostics</a>
+
+    <ul>
+      <li><a href="RubyLsp/Requests/Diagnostics.html#label-Example">Example</a>
+    </ul>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/DocumentHighlight.html">RubyLsp::Requests::DocumentHighlight</a>
+
+    <ul>
+      <li><a href="RubyLsp/Requests/DocumentHighlight.html#label-Example">Example</a>
+    </ul>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/DocumentLink.html">RubyLsp::Requests::DocumentLink</a>
+
+    <ul>
+      <li><a href="RubyLsp/Requests/DocumentLink.html#label-Example">Example</a>
+    </ul>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/DocumentSymbol.html">RubyLsp::Requests::DocumentSymbol</a>
+
+    <ul>
+      <li><a href="RubyLsp/Requests/DocumentSymbol.html#label-Example">Example</a>
+    </ul>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/DocumentSymbol/SymbolHierarchyRoot.html">RubyLsp::Requests::DocumentSymbol::SymbolHierarchyRoot</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/FoldingRanges.html">RubyLsp::Requests::FoldingRanges</a>
+
+    <ul>
+      <li><a href="RubyLsp/Requests/FoldingRanges.html#label-Example">Example</a>
+    </ul>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/Formatting.html">RubyLsp::Requests::Formatting</a>
+
+    <ul>
+      <li><a href="RubyLsp/Requests/Formatting.html#label-Example">Example</a>
+    </ul>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/Formatting/Error.html">RubyLsp::Requests::Formatting::Error</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/Formatting/InvalidFormatter.html">RubyLsp::Requests::Formatting::InvalidFormatter</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/Hover.html">RubyLsp::Requests::Hover</a>
+
+    <ul>
+      <li><a href="RubyLsp/Requests/Hover.html#label-Example">Example</a>
+    </ul>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/InlayHints.html">RubyLsp::Requests::InlayHints</a>
+
+    <ul>
+      <li><a href="RubyLsp/Requests/InlayHints.html#label-Example">Example</a>
+    </ul>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/OnTypeFormatting.html">RubyLsp::Requests::OnTypeFormatting</a>
+
+    <ul>
+      <li><a href="RubyLsp/Requests/OnTypeFormatting.html#label-Example">Example</a>
+    </ul>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/SelectionRanges.html">RubyLsp::Requests::SelectionRanges</a>
+
+    <ul>
+      <li><a href="RubyLsp/Requests/SelectionRanges.html#label-Example">Example</a>
+    </ul>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html">RubyLsp::Requests::SemanticHighlighting</a>
+
+    <ul>
+      <li><a href="RubyLsp/Requests/SemanticHighlighting.html#label-Example">Example</a>
+    </ul>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/SemanticHighlighting/SemanticToken.html">RubyLsp::Requests::SemanticHighlighting::SemanticToken</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/ShowSyntaxTree.html">RubyLsp::Requests::ShowSyntaxTree</a>
+
+    <ul>
+      <li><a href="RubyLsp/Requests/ShowSyntaxTree.html#label-Example">Example</a>
+    </ul>
+  </li>
+  <li class="module">
+    <a href="RubyLsp/Requests/Support.html">RubyLsp::Requests::Support</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/Support/Annotation.html">RubyLsp::Requests::Support::Annotation</a>
+  </li>
+  <li class="module">
+    <a href="RubyLsp/Requests/Support/Common.html">RubyLsp::Requests::Support::Common</a>
+  </li>
+  <li class="module">
+    <a href="RubyLsp/Requests/Support/FormatterRunner.html">RubyLsp::Requests::Support::FormatterRunner</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/Support/InternalRuboCopError.html">RubyLsp::Requests::Support::InternalRuboCopError</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/Support/RuboCopDiagnostic.html">RubyLsp::Requests::Support::RuboCopDiagnostic</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/Support/RuboCopDiagnosticsRunner.html">RubyLsp::Requests::Support::RuboCopDiagnosticsRunner</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/Support/RuboCopFormattingRunner.html">RubyLsp::Requests::Support::RuboCopFormattingRunner</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/Support/RuboCopRunner.html">RubyLsp::Requests::Support::RuboCopRunner</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/Support/RuboCopRunner/ConfigurationError.html">RubyLsp::Requests::Support::RuboCopRunner::ConfigurationError</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/Support/SelectionRange.html">RubyLsp::Requests::Support::SelectionRange</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/Support/SemanticTokenEncoder.html">RubyLsp::Requests::Support::SemanticTokenEncoder</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/Support/Sorbet.html">RubyLsp::Requests::Support::Sorbet</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/Support/SyntaxTreeFormattingRunner.html">RubyLsp::Requests::Support::SyntaxTreeFormattingRunner</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Requests/WorkspaceSymbol.html">RubyLsp::Requests::WorkspaceSymbol</a>
+
+    <ul>
+      <li><a href="RubyLsp/Requests/WorkspaceSymbol.html#label-Example">Example</a>
+    </ul>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Result.html">RubyLsp::Result</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Server.html">RubyLsp::Server</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/SetupBundler.html">RubyLsp::SetupBundler</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/SetupBundler/BundleNotLocked.html">RubyLsp::SetupBundler::BundleNotLocked</a>
+  </li>
+  <li class="class">
+    <a href="RubyLsp/Store.html">RubyLsp::Store</a>
+  </li>
+  <li class="module">
+    <a href="URI.html">URI</a>
+  </li>
+  <li class="class">
+    <a href="URI/Generic.html">URI::Generic</a>
+  </li>
+  <li class="class">
+    <a href="URI/Source.html">URI::Source</a>
+  </li>
+</ul>
+
+<h2 id="methods">Methods</h2>
+<ul>
+
+  <li class="method">
+    <a href="RubyLsp/Addon.html#method-c-addons">::addons</a>
+    &mdash;
+    <span class="container">RubyLsp::Addon</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/Sorbet.html#method-c-annotation-3F">::annotation?</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::Sorbet</span>
+
+  <li class="method">
+    <a href="URI/Source.html#method-c-build">::build</a>
+    &mdash;
+    <span class="container">URI::Source</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/RuboCopRunner.html#method-c-find_cop_by_name">::find_cop_by_name</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::RuboCopRunner</span>
+
+  <li class="method">
+    <a href="URI/Generic.html#method-c-from_path">::from_path</a>
+    &mdash;
+    <span class="container">URI::Generic</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentLink.html#method-c-gem_paths">::gem_paths</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentLink</span>
+
+  <li class="method">
+    <a href="RubyLsp/Addon.html#method-c-inherited">::inherited</a>
+    &mdash;
+    <span class="container">RubyLsp::Addon</span>
+
+  <li class="method">
+    <a href="RubyLsp/Addon.html#method-c-load_addons">::load_addons</a>
+    &mdash;
+    <span class="container">RubyLsp::Addon</span>
+
+  <li class="method">
+    <a href="RubyIndexer/Collector.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyIndexer::Collector</span>
+
+  <li class="method">
+    <a href="RubyIndexer/Configuration.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyIndexer::Configuration</span>
+
+  <li class="method">
+    <a href="RubyIndexer/Entry.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyIndexer::Entry</span>
+
+  <li class="method">
+    <a href="RubyIndexer/Entry/Class.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyIndexer::Entry::Class</span>
+
+  <li class="method">
+    <a href="RubyIndexer/Entry/Parameter.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyIndexer::Entry::Parameter</span>
+
+  <li class="method">
+    <a href="RubyIndexer/Entry/Method.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyIndexer::Entry::Method</span>
+
+  <li class="method">
+    <a href="RubyIndexer/Entry/UnresolvedAlias.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyIndexer::Entry::UnresolvedAlias</span>
+
+  <li class="method">
+    <a href="RubyIndexer/Entry/Alias.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyIndexer::Entry::Alias</span>
+
+  <li class="method">
+    <a href="RubyIndexer/Index.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyIndexer::Index</span>
+
+  <li class="method">
+    <a href="RubyIndexer/IndexablePath.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyIndexer::IndexablePath</span>
+
+  <li class="method">
+    <a href="RubyIndexer/PrefixTree.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyIndexer::PrefixTree</span>
+
+  <li class="method">
+    <a href="RubyIndexer/PrefixTree/Node.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyIndexer::PrefixTree::Node</span>
+
+  <li class="method">
+    <a href="RubyLsp/Addon.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Addon</span>
+
+  <li class="method">
+    <a href="RubyLsp/CheckDocs.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::CheckDocs</span>
+
+  <li class="method">
+    <a href="RubyLsp/Document.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Document</span>
+
+  <li class="method">
+    <a href="RubyLsp/Document/Scanner.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Document::Scanner</span>
+
+  <li class="method">
+    <a href="RubyLsp/Executor.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Executor</span>
+
+  <li class="method">
+    <a href="RubyLsp/Listener.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Listener</span>
+
+  <li class="method">
+    <a href="RubyLsp/ExtensibleListener.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::ExtensibleListener</span>
+
+  <li class="method">
+    <a href="RubyLsp/ParameterScope.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::ParameterScope</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/BaseRequest.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::BaseRequest</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/CodeActionResolve.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::CodeActionResolve</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/CodeActions.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::CodeActions</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/CodeLens.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::CodeLens</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Completion.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Completion</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Definition.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Definition</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Diagnostics.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Diagnostics</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentLink.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentLink</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentSymbol.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentSymbol</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentSymbol/SymbolHierarchyRoot.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentSymbol::SymbolHierarchyRoot</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/FoldingRanges.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::FoldingRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Formatting.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Formatting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Hover.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Hover</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/InlayHints.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::InlayHints</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/OnTypeFormatting.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::OnTypeFormatting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SelectionRanges.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SelectionRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting/SemanticToken.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting::SemanticToken</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/ShowSyntaxTree.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::ShowSyntaxTree</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/Annotation.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::Annotation</span>
+
+  <li class="method">
+    <a href="RubyLsp/DependencyDetector.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::DependencyDetector</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/RuboCopDiagnostic.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::RuboCopDiagnostic</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/RuboCopDiagnosticsRunner.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::RuboCopDiagnosticsRunner</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/RuboCopFormattingRunner.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::RuboCopFormattingRunner</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/InternalRuboCopError.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::InternalRuboCopError</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/RuboCopRunner.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::RuboCopRunner</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/SemanticTokenEncoder.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::SemanticTokenEncoder</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/SyntaxTreeFormattingRunner.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::SyntaxTreeFormattingRunner</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/WorkspaceSymbol.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::WorkspaceSymbol</span>
+
+  <li class="method">
+    <a href="RubyLsp/Server.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Server</span>
+
+  <li class="method">
+    <a href="RubyLsp/SetupBundler.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::SetupBundler</span>
+
+  <li class="method">
+    <a href="RubyLsp/Store.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Store</span>
+
+  <li class="method">
+    <a href="RubyLsp/Message.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Message</span>
+
+  <li class="method">
+    <a href="RubyLsp/Result.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Result</span>
+
+  <li class="method">
+    <a href="RubyLsp/Job.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RubyLsp::Job</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Formatting.html#method-c-register_formatter">::register_formatter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Formatting</span>
+
+  <li class="method">
+    <a href="RubyIndexer/Index.html#method-i-3C-3C">#&lt;&lt;</a>
+    &mdash;
+    <span class="container">RubyIndexer::Index</span>
+
+  <li class="method">
+    <a href="RubyLsp/ParameterScope.html#method-i-3C-3C">#&lt;&lt;</a>
+    &mdash;
+    <span class="container">RubyLsp::ParameterScope</span>
+
+  <li class="method">
+    <a href="RubyLsp/Document.html#method-i-3D-3D">#==</a>
+    &mdash;
+    <span class="container">RubyLsp::Document</span>
+
+  <li class="method">
+    <a href="RubyIndexer/Index.html#method-i-5B-5D">#[]</a>
+    &mdash;
+    <span class="container">RubyIndexer::Index</span>
+
+  <li class="method">
+    <a href="RubyLsp/Listener.html#method-i-_response">#_response</a>
+    &mdash;
+    <span class="container">RubyLsp::Listener</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/FoldingRanges.html#method-i-_response">#_response</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::FoldingRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/Addon.html#method-i-activate">#activate</a>
+    &mdash;
+    <span class="container">RubyLsp::Addon</span>
+
+  <li class="method">
+    <a href="RubyLsp/Addon.html#method-i-add_error">#add_error</a>
+    &mdash;
+    <span class="container">RubyLsp::Addon</span>
+
+  <li class="method">
+    <a href="RubyLsp/Addon.html#method-i-backtraces">#backtraces</a>
+    &mdash;
+    <span class="container">RubyLsp::Addon</span>
+
+  <li class="method">
+    <a href="RubyLsp/Document.html#method-i-cache_fetch">#cache_fetch</a>
+    &mdash;
+    <span class="container">RubyLsp::Document</span>
+
+  <li class="method">
+    <a href="RubyLsp/Store.html#method-i-cache_fetch">#cache_fetch</a>
+    &mdash;
+    <span class="container">RubyLsp::Store</span>
+
+  <li class="method">
+    <a href="RubyLsp/Document.html#method-i-cache_get">#cache_get</a>
+    &mdash;
+    <span class="container">RubyLsp::Document</span>
+
+  <li class="method">
+    <a href="RubyLsp/Document.html#method-i-cache_set">#cache_set</a>
+    &mdash;
+    <span class="container">RubyLsp::Document</span>
+
+  <li class="method">
+    <a href="RubyLsp/Job.html#method-i-cancel">#cancel</a>
+    &mdash;
+    <span class="container">RubyLsp::Job</span>
+
+  <li class="method">
+    <a href="URI/Source.html#method-i-check_host">#check_host</a>
+    &mdash;
+    <span class="container">URI::Source</span>
+
+  <li class="method">
+    <a href="RubyLsp/Store.html#method-i-clear">#clear</a>
+    &mdash;
+    <span class="container">RubyLsp::Store</span>
+
+  <li class="method">
+    <a href="RubyIndexer/Collector.html#method-i-collect">#collect</a>
+    &mdash;
+    <span class="container">RubyIndexer::Collector</span>
+
+  <li class="method">
+    <a href="RubyIndexer/PrefixTree/Node.html#method-i-collect">#collect</a>
+    &mdash;
+    <span class="container">RubyIndexer::PrefixTree::Node</span>
+
+  <li class="method">
+    <a href="RubyLsp/Document.html#method-i-comments">#comments</a>
+    &mdash;
+    <span class="container">RubyLsp::Document</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/SemanticTokenEncoder.html#method-i-compute_delta">#compute_delta</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::SemanticTokenEncoder</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/SelectionRange.html#method-i-cover-3F">#cover?</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::SelectionRange</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/Common.html#method-i-create_code_lens">#create_code_lens</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::Common</span>
+
+  <li class="method">
+    <a href="RubyLsp/Addon.html#method-i-create_code_lens_listener">#create_code_lens_listener</a>
+    &mdash;
+    <span class="container">RubyLsp::Addon</span>
+
+  <li class="method">
+    <a href="RubyLsp/Addon.html#method-i-create_definition_listener">#create_definition_listener</a>
+    &mdash;
+    <span class="container">RubyLsp::Addon</span>
+
+  <li class="method">
+    <a href="RubyLsp/Addon.html#method-i-create_document_symbol_listener">#create_document_symbol_listener</a>
+    &mdash;
+    <span class="container">RubyLsp::Addon</span>
+
+  <li class="method">
+    <a href="RubyLsp/Addon.html#method-i-create_hover_listener">#create_hover_listener</a>
+    &mdash;
+    <span class="container">RubyLsp::Addon</span>
+
+  <li class="method">
+    <a href="RubyLsp/Document.html#method-i-create_scanner">#create_scanner</a>
+    &mdash;
+    <span class="container">RubyLsp::Document</span>
+
+  <li class="method">
+    <a href="RubyLsp/Addon.html#method-i-deactivate">#deactivate</a>
+    &mdash;
+    <span class="container">RubyLsp::Addon</span>
+
+  <li class="method">
+    <a href="RubyIndexer/Index.html#method-i-delete">#delete</a>
+    &mdash;
+    <span class="container">RubyIndexer::Index</span>
+
+  <li class="method">
+    <a href="RubyIndexer/PrefixTree.html#method-i-delete">#delete</a>
+    &mdash;
+    <span class="container">RubyIndexer::PrefixTree</span>
+
+  <li class="method">
+    <a href="RubyLsp/Store.html#method-i-delete">#delete</a>
+    &mdash;
+    <span class="container">RubyLsp::Store</span>
+
+  <li class="method">
+    <a href="RubyLsp/DependencyDetector.html#method-i-dependencies">#dependencies</a>
+    &mdash;
+    <span class="container">RubyLsp::DependencyDetector</span>
+
+  <li class="method">
+    <a href="RubyLsp/DependencyDetector.html#method-i-detect_formatter">#detect_formatter</a>
+    &mdash;
+    <span class="container">RubyLsp::DependencyDetector</span>
+
+  <li class="method">
+    <a href="RubyLsp/DependencyDetector.html#method-i-detect_test_library">#detect_test_library</a>
+    &mdash;
+    <span class="container">RubyLsp::DependencyDetector</span>
+
+  <li class="method">
+    <a href="RubyLsp/DependencyDetector.html#method-i-detect_typechecker">#detect_typechecker</a>
+    &mdash;
+    <span class="container">RubyLsp::DependencyDetector</span>
+
+  <li class="method">
+    <a href="RubyLsp/DependencyDetector.html#method-i-direct_dependency-3F">#direct_dependency?</a>
+    &mdash;
+    <span class="container">RubyLsp::DependencyDetector</span>
+
+  <li class="method">
+    <a href="RubyLsp/Store.html#method-i-empty-3F">#empty?</a>
+    &mdash;
+    <span class="container">RubyLsp::Store</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/SemanticTokenEncoder.html#method-i-encode">#encode</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::SemanticTokenEncoder</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/SemanticTokenEncoder.html#method-i-encode_modifiers">#encode_modifiers</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::SemanticTokenEncoder</span>
+
+  <li class="method">
+    <a href="RubyLsp/Addon.html#method-i-error-3F">#error?</a>
+    &mdash;
+    <span class="container">RubyLsp::Addon</span>
+
+  <li class="method">
+    <a href="RubyLsp/Executor.html#method-i-execute">#execute</a>
+    &mdash;
+    <span class="container">RubyLsp::Executor</span>
+
+  <li class="method">
+    <a href="RubyIndexer/Entry.html#method-i-file_name">#file_name</a>
+    &mdash;
+    <span class="container">RubyIndexer::Entry</span>
+
+  <li class="method">
+    <a href="RubyLsp/Document/Scanner.html#method-i-find_char_position">#find_char_position</a>
+    &mdash;
+    <span class="container">RubyLsp::Document::Scanner</span>
+
+  <li class="method">
+    <a href="RubyIndexer/Index.html#method-i-follow_aliased_namespace">#follow_aliased_namespace</a>
+    &mdash;
+    <span class="container">RubyIndexer::Index</span>
+
+  <li class="method">
+    <a href="RubyLsp/Addon.html#method-i-formatted_errors">#formatted_errors</a>
+    &mdash;
+    <span class="container">RubyLsp::Addon</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/RuboCopRunner.html#method-i-formatted_source">#formatted_source</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::RuboCopRunner</span>
+
+  <li class="method">
+    <a href="RubyIndexer/Index.html#method-i-fuzzy_search">#fuzzy_search</a>
+    &mdash;
+    <span class="container">RubyIndexer::Index</span>
+
+  <li class="method">
+    <a href="RubyLsp/DependencyDetector.html#method-i-gemspec_dependencies">#gemspec_dependencies</a>
+    &mdash;
+    <span class="container">RubyLsp::DependencyDetector</span>
+
+  <li class="method">
+    <a href="RubyLsp/Store.html#method-i-get">#get</a>
+    &mdash;
+    <span class="container">RubyLsp::Store</span>
+
+  <li class="method">
+    <a href="RubyIndexer/Index.html#method-i-index_all">#index_all</a>
+    &mdash;
+    <span class="container">RubyIndexer::Index</span>
+
+  <li class="method">
+    <a href="RubyIndexer/Index.html#method-i-index_single">#index_single</a>
+    &mdash;
+    <span class="container">RubyIndexer::Index</span>
+
+  <li class="method">
+    <a href="RubyIndexer/Configuration.html#method-i-indexables">#indexables</a>
+    &mdash;
+    <span class="container">RubyIndexer::Configuration</span>
+
+  <li class="method">
+    <a href="RubyLsp/ExtensibleListener.html#method-i-initialize_external_listener">#initialize_external_listener</a>
+    &mdash;
+    <span class="container">RubyLsp::ExtensibleListener</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/CodeLens.html#method-i-initialize_external_listener">#initialize_external_listener</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::CodeLens</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Definition.html#method-i-initialize_external_listener">#initialize_external_listener</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Definition</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentSymbol.html#method-i-initialize_external_listener">#initialize_external_listener</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentSymbol</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Hover.html#method-i-initialize_external_listener">#initialize_external_listener</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Hover</span>
+
+  <li class="method">
+    <a href="RubyIndexer/PrefixTree.html#method-i-insert">#insert</a>
+    &mdash;
+    <span class="container">RubyIndexer::PrefixTree</span>
+
+  <li class="method">
+    <a href="RubyIndexer/Configuration.html#method-i-load_config">#load_config</a>
+    &mdash;
+    <span class="container">RubyIndexer::Configuration</span>
+
+  <li class="method">
+    <a href="RubyLsp/Document.html#method-i-locate">#locate</a>
+    &mdash;
+    <span class="container">RubyLsp::Document</span>
+
+  <li class="method">
+    <a href="RubyLsp/Document.html#method-i-locate_node">#locate_node</a>
+    &mdash;
+    <span class="container">RubyLsp::Document</span>
+
+  <li class="method">
+    <a href="RubyIndexer/Configuration.html#method-i-magic_comment_regex">#magic_comment_regex</a>
+    &mdash;
+    <span class="container">RubyIndexer::Configuration</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/Common.html#method-i-markdown_from_index_entries">#markdown_from_index_entries</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::Common</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/Annotation.html#method-i-match-3F">#match?</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::Annotation</span>
+
+  <li class="method">
+    <a href="RubyLsp/ExtensibleListener.html#method-i-merge_external_listeners_responses-21">#merge_external_listeners_responses!</a>
+    &mdash;
+    <span class="container">RubyLsp::ExtensibleListener</span>
+
+  <li class="method">
+    <a href="RubyLsp/ExtensibleListener.html#method-i-merge_response-21">#merge_response!</a>
+    &mdash;
+    <span class="container">RubyLsp::ExtensibleListener</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/CodeLens.html#method-i-merge_response-21">#merge_response!</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::CodeLens</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Definition.html#method-i-merge_response-21">#merge_response!</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Definition</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentSymbol.html#method-i-merge_response-21">#merge_response!</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentSymbol</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Hover.html#method-i-merge_response-21">#merge_response!</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Hover</span>
+
+  <li class="method">
+    <a href="RubyLsp/Addon.html#method-i-name">#name</a>
+    &mdash;
+    <span class="container">RubyLsp::Addon</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/FoldingRanges.html#method-i-on_array_node_enter">#on_array_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::FoldingRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/FoldingRanges.html#method-i-on_begin_node_enter">#on_begin_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::FoldingRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_block_local_variable_node_enter">#on_block_local_variable_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/FoldingRanges.html#method-i-on_block_node_enter">#on_block_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::FoldingRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_block_node_enter">#on_block_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_block_node_leave">#on_block_node_leave</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_block_parameter_node_enter">#on_block_parameter_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_block_parameter_node_enter">#on_block_parameter_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/CodeLens.html#method-i-on_call_node_enter">#on_call_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::CodeLens</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Definition.html#method-i-on_call_node_enter">#on_call_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Definition</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_call_node_enter">#on_call_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentSymbol.html#method-i-on_call_node_enter">#on_call_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentSymbol</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/FoldingRanges.html#method-i-on_call_node_enter">#on_call_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::FoldingRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_call_node_enter">#on_call_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/CodeLens.html#method-i-on_call_node_leave">#on_call_node_leave</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::CodeLens</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/FoldingRanges.html#method-i-on_case_node_enter">#on_case_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::FoldingRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/CodeLens.html#method-i-on_class_node_enter">#on_class_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::CodeLens</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_class_node_enter">#on_class_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentLink.html#method-i-on_class_node_enter">#on_class_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentLink</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentSymbol.html#method-i-on_class_node_enter">#on_class_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentSymbol</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/FoldingRanges.html#method-i-on_class_node_enter">#on_class_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::FoldingRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_class_node_enter">#on_class_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/CodeLens.html#method-i-on_class_node_leave">#on_class_node_leave</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::CodeLens</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentSymbol.html#method-i-on_class_node_leave">#on_class_node_leave</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentSymbol</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_class_variable_and_write_node_enter">#on_class_variable_and_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_class_variable_operator_write_node_enter">#on_class_variable_operator_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_class_variable_or_write_node_enter">#on_class_variable_or_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_class_variable_read_node_enter">#on_class_variable_read_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_class_variable_target_node_enter">#on_class_variable_target_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_class_variable_write_node_enter">#on_class_variable_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentSymbol.html#method-i-on_class_variable_write_node_enter">#on_class_variable_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentSymbol</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_constant_and_write_node_enter">#on_constant_and_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_constant_and_write_node_enter">#on_constant_and_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_constant_operator_write_node_enter">#on_constant_operator_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_constant_operator_write_node_enter">#on_constant_operator_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_constant_or_write_node_enter">#on_constant_or_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_constant_or_write_node_enter">#on_constant_or_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_constant_path_and_write_node_enter">#on_constant_path_and_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Completion.html#method-i-on_constant_path_node_enter">#on_constant_path_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Completion</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Definition.html#method-i-on_constant_path_node_enter">#on_constant_path_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Definition</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_constant_path_node_enter">#on_constant_path_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Hover.html#method-i-on_constant_path_node_enter">#on_constant_path_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Hover</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_constant_path_operator_write_node_enter">#on_constant_path_operator_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_constant_path_or_write_node_enter">#on_constant_path_or_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_constant_path_target_node_enter">#on_constant_path_target_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_constant_path_write_node_enter">#on_constant_path_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentLink.html#method-i-on_constant_path_write_node_enter">#on_constant_path_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentLink</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentSymbol.html#method-i-on_constant_path_write_node_enter">#on_constant_path_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentSymbol</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Completion.html#method-i-on_constant_read_node_enter">#on_constant_read_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Completion</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Definition.html#method-i-on_constant_read_node_enter">#on_constant_read_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Definition</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_constant_read_node_enter">#on_constant_read_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Hover.html#method-i-on_constant_read_node_enter">#on_constant_read_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Hover</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_constant_read_node_enter">#on_constant_read_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_constant_target_node_enter">#on_constant_target_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_constant_target_node_enter">#on_constant_target_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_constant_write_node_enter">#on_constant_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentLink.html#method-i-on_constant_write_node_enter">#on_constant_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentLink</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentSymbol.html#method-i-on_constant_write_node_enter">#on_constant_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentSymbol</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Hover.html#method-i-on_constant_write_node_enter">#on_constant_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Hover</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_constant_write_node_enter">#on_constant_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/CodeLens.html#method-i-on_def_node_enter">#on_def_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::CodeLens</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_def_node_enter">#on_def_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentLink.html#method-i-on_def_node_enter">#on_def_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentLink</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentSymbol.html#method-i-on_def_node_enter">#on_def_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentSymbol</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/FoldingRanges.html#method-i-on_def_node_enter">#on_def_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::FoldingRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_def_node_enter">#on_def_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentSymbol.html#method-i-on_def_node_leave">#on_def_node_leave</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentSymbol</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_def_node_leave">#on_def_node_leave</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/FoldingRanges.html#method-i-on_else_node_enter">#on_else_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::FoldingRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/FoldingRanges.html#method-i-on_ensure_node_enter">#on_ensure_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::FoldingRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/FoldingRanges.html#method-i-on_for_node_enter">#on_for_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::FoldingRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_global_variable_and_write_node_enter">#on_global_variable_and_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_global_variable_operator_write_node_enter">#on_global_variable_operator_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_global_variable_or_write_node_enter">#on_global_variable_or_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_global_variable_read_node_enter">#on_global_variable_read_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_global_variable_target_node_enter">#on_global_variable_target_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_global_variable_write_node_enter">#on_global_variable_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/FoldingRanges.html#method-i-on_hash_node_enter">#on_hash_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::FoldingRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/FoldingRanges.html#method-i-on_if_node_enter">#on_if_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::FoldingRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/FoldingRanges.html#method-i-on_in_node_enter">#on_in_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::FoldingRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_instance_variable_and_write_node_enter">#on_instance_variable_and_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_instance_variable_operator_write_node_enter">#on_instance_variable_operator_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_instance_variable_or_write_node_enter">#on_instance_variable_or_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_instance_variable_read_node_enter">#on_instance_variable_read_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_instance_variable_target_node_enter">#on_instance_variable_target_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_instance_variable_write_node_enter">#on_instance_variable_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentSymbol.html#method-i-on_instance_variable_write_node_enter">#on_instance_variable_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentSymbol</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/FoldingRanges.html#method-i-on_interpolated_string_node_enter">#on_interpolated_string_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::FoldingRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_keyword_rest_parameter_node_enter">#on_keyword_rest_parameter_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_keyword_rest_parameter_node_enter">#on_keyword_rest_parameter_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/FoldingRanges.html#method-i-on_lambda_node_enter">#on_lambda_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::FoldingRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_local_variable_and_write_node_enter">#on_local_variable_and_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_local_variable_and_write_node_enter">#on_local_variable_and_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_local_variable_operator_write_node_enter">#on_local_variable_operator_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_local_variable_operator_write_node_enter">#on_local_variable_operator_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_local_variable_or_write_node_enter">#on_local_variable_or_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_local_variable_or_write_node_enter">#on_local_variable_or_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_local_variable_read_node_enter">#on_local_variable_read_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_local_variable_read_node_enter">#on_local_variable_read_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_local_variable_target_node_enter">#on_local_variable_target_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_local_variable_target_node_enter">#on_local_variable_target_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_local_variable_write_node_enter">#on_local_variable_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_local_variable_write_node_enter">#on_local_variable_write_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_module_node_enter">#on_module_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentLink.html#method-i-on_module_node_enter">#on_module_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentLink</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentSymbol.html#method-i-on_module_node_enter">#on_module_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentSymbol</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/FoldingRanges.html#method-i-on_module_node_enter">#on_module_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::FoldingRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_module_node_enter">#on_module_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentSymbol.html#method-i-on_module_node_leave">#on_module_node_leave</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentSymbol</span>
+
+  <li class="method">
+    <a href="RuboCop/Cop/RubyLsp/UseLanguageServerAliases.html#method-i-on_new_investigation">#on_new_investigation</a>
+    &mdash;
+    <span class="container">RuboCop::Cop::RubyLsp::UseLanguageServerAliases</span>
+
+  <li class="method">
+    <a href="RuboCop/Cop/RubyLsp/UseRegisterWithHandlerMethod.html#method-i-on_new_investigation">#on_new_investigation</a>
+    &mdash;
+    <span class="container">RuboCop::Cop::RubyLsp::UseRegisterWithHandlerMethod</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_optional_keyword_parameter_node_enter">#on_optional_keyword_parameter_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_optional_keyword_parameter_node_enter">#on_optional_keyword_parameter_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_optional_parameter_node_enter">#on_optional_parameter_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_optional_parameter_node_enter">#on_optional_parameter_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_required_keyword_parameter_node_enter">#on_required_keyword_parameter_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_required_keyword_parameter_node_enter">#on_required_keyword_parameter_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_required_parameter_node_enter">#on_required_parameter_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_required_parameter_node_enter">#on_required_parameter_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/FoldingRanges.html#method-i-on_rescue_node_enter">#on_rescue_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::FoldingRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/InlayHints.html#method-i-on_rescue_node_enter">#on_rescue_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::InlayHints</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentHighlight.html#method-i-on_rest_parameter_node_enter">#on_rest_parameter_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentHighlight</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_rest_parameter_node_enter">#on_rest_parameter_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SemanticHighlighting.html#method-i-on_self_node_enter">#on_self_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SemanticHighlighting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentSymbol.html#method-i-on_singleton_class_node_enter">#on_singleton_class_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentSymbol</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/FoldingRanges.html#method-i-on_singleton_class_node_enter">#on_singleton_class_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::FoldingRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/DocumentSymbol.html#method-i-on_singleton_class_node_leave">#on_singleton_class_node_leave</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::DocumentSymbol</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/FoldingRanges.html#method-i-on_string_concat_node_enter">#on_string_concat_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::FoldingRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Completion.html#method-i-on_string_node_enter">#on_string_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Completion</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/FoldingRanges.html#method-i-on_unless_node_enter">#on_unless_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::FoldingRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/FoldingRanges.html#method-i-on_until_node_enter">#on_until_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::FoldingRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/FoldingRanges.html#method-i-on_when_node_enter">#on_when_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::FoldingRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/FoldingRanges.html#method-i-on_while_node_enter">#on_while_node_enter</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::FoldingRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/ParameterScope.html#method-i-parameter-3F">#parameter?</a>
+    &mdash;
+    <span class="container">RubyLsp::ParameterScope</span>
+
+  <li class="method">
+    <a href="RubyLsp/Document.html#method-i-parse">#parse</a>
+    &mdash;
+    <span class="container">RubyLsp::Document</span>
+
+  <li class="method">
+    <a href="RubyIndexer/Index.html#method-i-prefix_search">#prefix_search</a>
+    &mdash;
+    <span class="container">RubyIndexer::Index</span>
+
+  <li class="method">
+    <a href="RubyLsp/Document.html#method-i-push_edits">#push_edits</a>
+    &mdash;
+    <span class="container">RubyLsp::Document</span>
+
+  <li class="method">
+    <a href="RubyLsp/Store.html#method-i-push_edits">#push_edits</a>
+    &mdash;
+    <span class="container">RubyLsp::Store</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/Common.html#method-i-range_from_location">#range_from_location</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::Common</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/Common.html#method-i-range_from_node">#range_from_node</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::Common</span>
+
+  <li class="method">
+    <a href="RubyIndexer/Index.html#method-i-resolve">#resolve</a>
+    &mdash;
+    <span class="container">RubyIndexer::Index</span>
+
+  <li class="method">
+    <a href="RubyLsp/Listener.html#method-i-response">#response</a>
+    &mdash;
+    <span class="container">RubyLsp::Listener</span>
+
+  <li class="method">
+    <a href="RubyLsp/ExtensibleListener.html#method-i-response">#response</a>
+    &mdash;
+    <span class="container">RubyLsp::ExtensibleListener</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/BaseRequest.html#method-i-run">#run</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::BaseRequest</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/CodeActionResolve.html#method-i-run">#run</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::CodeActionResolve</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/CodeActions.html#method-i-run">#run</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::CodeActions</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Diagnostics.html#method-i-run">#run</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Diagnostics</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Formatting.html#method-i-run">#run</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Formatting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/OnTypeFormatting.html#method-i-run">#run</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::OnTypeFormatting</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/SelectionRanges.html#method-i-run">#run</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::SelectionRanges</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/ShowSyntaxTree.html#method-i-run">#run</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::ShowSyntaxTree</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/RuboCopDiagnosticsRunner.html#method-i-run">#run</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::RuboCopDiagnosticsRunner</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/RuboCopFormattingRunner.html#method-i-run">#run</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::RuboCopFormattingRunner</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/RuboCopRunner.html#method-i-run">#run</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::RuboCopRunner</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/SyntaxTreeFormattingRunner.html#method-i-run">#run</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::SyntaxTreeFormattingRunner</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/WorkspaceSymbol.html#method-i-run">#run</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::WorkspaceSymbol</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/FormatterRunner.html#method-i-run">#run</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::FormatterRunner</span>
+
+  <li class="method">
+    <a href="RubyIndexer/PrefixTree.html#method-i-search">#search</a>
+    &mdash;
+    <span class="container">RubyIndexer::PrefixTree</span>
+
+  <li class="method">
+    <a href="RubyIndexer/Index.html#method-i-search_require_paths">#search_require_paths</a>
+    &mdash;
+    <span class="container">RubyIndexer::Index</span>
+
+  <li class="method">
+    <a href="RubyLsp/Store.html#method-i-set">#set</a>
+    &mdash;
+    <span class="container">RubyLsp::Store</span>
+
+  <li class="method">
+    <a href="URI/Source.html#method-i-set_path">#set_path</a>
+    &mdash;
+    <span class="container">URI::Source</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConfigurationTest.html#method-i-setup">#setup</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConfigurationTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/TestCase.html#method-i-setup">#setup</a>
+    &mdash;
+    <span class="container">RubyIndexer::TestCase</span>
+
+  <li class="method">
+    <a href="RubyLsp/SetupBundler.html#method-i-setup-21">#setup!</a>
+    &mdash;
+    <span class="container">RubyLsp::SetupBundler</span>
+
+  <li class="method">
+    <a href="RubyIndexer/Entry/Namespace.html#method-i-short_name">#short_name</a>
+    &mdash;
+    <span class="container">RubyIndexer::Entry::Namespace</span>
+
+  <li class="method">
+    <a href="RubyLsp/Server.html#method-i-start">#start</a>
+    &mdash;
+    <span class="container">RubyLsp::Server</span>
+
+  <li class="method">
+    <a href="RubyLsp/Document.html#method-i-syntax_error-3F">#syntax_error?</a>
+    &mdash;
+    <span class="container">RubyLsp::Document</span>
+
+  <li class="method">
+    <a href="RubyIndexer/IndexTest.html#method-i-test_accessing_with_colon_colon_prefix">#test_accessing_with_colon_colon_prefix</a>
+    &mdash;
+    <span class="container">RubyIndexer::IndexTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConstantTest.html#method-i-test_aliasing_namespaces">#test_aliasing_namespaces</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConstantTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ClassesAndModulesTest.html#method-i-test_class_with_statements">#test_class_with_statements</a>
+    &mdash;
+    <span class="container">RubyIndexer::ClassesAndModulesTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ClassesAndModulesTest.html#method-i-test_colon_colon_class">#test_colon_colon_class</a>
+    &mdash;
+    <span class="container">RubyIndexer::ClassesAndModulesTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ClassesAndModulesTest.html#method-i-test_colon_colon_class_inside_class">#test_colon_colon_class_inside_class</a>
+    &mdash;
+    <span class="container">RubyIndexer::ClassesAndModulesTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ClassesAndModulesTest.html#method-i-test_colon_colon_module">#test_colon_colon_module</a>
+    &mdash;
+    <span class="container">RubyIndexer::ClassesAndModulesTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ClassesAndModulesTest.html#method-i-test_comments_can_be_attached_to_a_class">#test_comments_can_be_attached_to_a_class</a>
+    &mdash;
+    <span class="container">RubyIndexer::ClassesAndModulesTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ClassesAndModulesTest.html#method-i-test_comments_can_be_attached_to_a_namespaced_class">#test_comments_can_be_attached_to_a_namespaced_class</a>
+    &mdash;
+    <span class="container">RubyIndexer::ClassesAndModulesTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ClassesAndModulesTest.html#method-i-test_comments_can_be_attached_to_a_reopened_class">#test_comments_can_be_attached_to_a_reopened_class</a>
+    &mdash;
+    <span class="container">RubyIndexer::ClassesAndModulesTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConstantTest.html#method-i-test_comments_for_constants">#test_comments_for_constants</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConstantTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ClassesAndModulesTest.html#method-i-test_comments_removes_the_leading_pound_and_space">#test_comments_removes_the_leading_pound_and_space</a>
+    &mdash;
+    <span class="container">RubyIndexer::ClassesAndModulesTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConfigurationTest.html#method-i-test_configuration_raises_for_unknown_keys">#test_configuration_raises_for_unknown_keys</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConfigurationTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConstantTest.html#method-i-test_constant_or_writes">#test_constant_or_writes</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConstantTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConstantTest.html#method-i-test_constant_path_or_writes">#test_constant_path_or_writes</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConstantTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConstantTest.html#method-i-test_constant_path_writes">#test_constant_path_writes</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConstantTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConstantTest.html#method-i-test_constant_writes">#test_constant_writes</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConstantTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/PrefixTreeTest.html#method-i-test_delete_does_not_impact_other_keys_with_the_same_value">#test_delete_does_not_impact_other_keys_with_the_same_value</a>
+    &mdash;
+    <span class="container">RubyIndexer::PrefixTreeTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/PrefixTreeTest.html#method-i-test_deleted_node_is_removed_from_the_tree">#test_deleted_node_is_removed_from_the_tree</a>
+    &mdash;
+    <span class="container">RubyIndexer::PrefixTreeTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/IndexTest.html#method-i-test_deleting_all_entries_for_a_class">#test_deleting_all_entries_for_a_class</a>
+    &mdash;
+    <span class="container">RubyIndexer::IndexTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ClassesAndModulesTest.html#method-i-test_deleting_from_index_based_on_file_path">#test_deleting_from_index_based_on_file_path</a>
+    &mdash;
+    <span class="container">RubyIndexer::ClassesAndModulesTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/PrefixTreeTest.html#method-i-test_deleting_non_terminal_nodes">#test_deleting_non_terminal_nodes</a>
+    &mdash;
+    <span class="container">RubyIndexer::PrefixTreeTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/IndexTest.html#method-i-test_deleting_one_entry_for_a_class">#test_deleting_one_entry_for_a_class</a>
+    &mdash;
+    <span class="container">RubyIndexer::IndexTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/PrefixTreeTest.html#method-i-test_deletion">#test_deletion</a>
+    &mdash;
+    <span class="container">RubyIndexer::PrefixTreeTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ClassesAndModulesTest.html#method-i-test_dynamically_namespaced_class">#test_dynamically_namespaced_class</a>
+    &mdash;
+    <span class="container">RubyIndexer::ClassesAndModulesTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ClassesAndModulesTest.html#method-i-test_dynamically_namespaced_module">#test_dynamically_namespaced_module</a>
+    &mdash;
+    <span class="container">RubyIndexer::ClassesAndModulesTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/PrefixTreeTest.html#method-i-test_empty">#test_empty</a>
+    &mdash;
+    <span class="container">RubyIndexer::PrefixTreeTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ClassesAndModulesTest.html#method-i-test_empty_statements_class">#test_empty_statements_class</a>
+    &mdash;
+    <span class="container">RubyIndexer::ClassesAndModulesTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ClassesAndModulesTest.html#method-i-test_empty_statements_module">#test_empty_statements_module</a>
+    &mdash;
+    <span class="container">RubyIndexer::ClassesAndModulesTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/IndexTest.html#method-i-test_fuzzy_search">#test_fuzzy_search</a>
+    &mdash;
+    <span class="container">RubyIndexer::IndexTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/IndexTest.html#method-i-test_index_resolve">#test_index_resolve</a>
+    &mdash;
+    <span class="container">RubyIndexer::IndexTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/IndexTest.html#method-i-test_index_single_ignores_directories">#test_index_single_ignores_directories</a>
+    &mdash;
+    <span class="container">RubyIndexer::IndexTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConfigurationTest.html#method-i-test_indexables_avoids_duplicates_if_bundle_path_is_inside_project">#test_indexables_avoids_duplicates_if_bundle_path_is_inside_project</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConfigurationTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConfigurationTest.html#method-i-test_indexables_does_not_include_default_gem_path_when_in_bundle">#test_indexables_does_not_include_default_gem_path_when_in_bundle</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConfigurationTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConfigurationTest.html#method-i-test_indexables_does_not_include_gems_own_installed_files">#test_indexables_does_not_include_gems_own_installed_files</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConfigurationTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConfigurationTest.html#method-i-test_indexables_includes_default_gems">#test_indexables_includes_default_gems</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConfigurationTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConfigurationTest.html#method-i-test_indexables_includes_project_files">#test_indexables_includes_project_files</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConfigurationTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConfigurationTest.html#method-i-test_indexables_only_includes_gem_require_paths">#test_indexables_only_includes_gem_require_paths</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConfigurationTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConstantTest.html#method-i-test_indexing_constant_aliases">#test_indexing_constant_aliases</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConstantTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConstantTest.html#method-i-test_indexing_constant_targets">#test_indexing_constant_targets</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConstantTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConstantTest.html#method-i-test_indexing_constant_targets_with_splats">#test_indexing_constant_targets_with_splats</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConstantTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConstantTest.html#method-i-test_indexing_destructuring_an_array">#test_indexing_destructuring_an_array</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConstantTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConstantTest.html#method-i-test_indexing_or_and_operator_nodes">#test_indexing_or_and_operator_nodes</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConstantTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConstantTest.html#method-i-test_indexing_same_line_constant_aliases">#test_indexing_same_line_constant_aliases</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConstantTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ClassesAndModulesTest.html#method-i-test_keeping_track_of_super_classes">#test_keeping_track_of_super_classes</a>
+    &mdash;
+    <span class="container">RubyIndexer::ClassesAndModulesTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConfigurationTest.html#method-i-test_load_configuration_executes_configure_block">#test_load_configuration_executes_configure_block</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConfigurationTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConfigurationTest.html#method-i-test_magic_comments_regex">#test_magic_comments_regex</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConfigurationTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConstantTest.html#method-i-test_marking_constants_as_private_reopening_namespaces">#test_marking_constants_as_private_reopening_namespaces</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConstantTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConstantTest.html#method-i-test_marking_constants_as_private_with_receiver">#test_marking_constants_as_private_with_receiver</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConstantTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/MethodTest.html#method-i-test_method_with_destructed_parameters">#test_method_with_destructed_parameters</a>
+    &mdash;
+    <span class="container">RubyIndexer::MethodTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/MethodTest.html#method-i-test_method_with_no_parameters">#test_method_with_no_parameters</a>
+    &mdash;
+    <span class="container">RubyIndexer::MethodTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/MethodTest.html#method-i-test_method_with_parameters">#test_method_with_parameters</a>
+    &mdash;
+    <span class="container">RubyIndexer::MethodTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ClassesAndModulesTest.html#method-i-test_module_with_statements">#test_module_with_statements</a>
+    &mdash;
+    <span class="container">RubyIndexer::ClassesAndModulesTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/PrefixTreeTest.html#method-i-test_multiple_items">#test_multiple_items</a>
+    &mdash;
+    <span class="container">RubyIndexer::PrefixTreeTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/PrefixTreeTest.html#method-i-test_multiple_prefixes">#test_multiple_prefixes</a>
+    &mdash;
+    <span class="container">RubyIndexer::PrefixTreeTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/PrefixTreeTest.html#method-i-test_multiple_prefixes_with_shuffled_order">#test_multiple_prefixes_with_shuffled_order</a>
+    &mdash;
+    <span class="container">RubyIndexer::PrefixTreeTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ClassesAndModulesTest.html#method-i-test_namespaced_class">#test_namespaced_class</a>
+    &mdash;
+    <span class="container">RubyIndexer::ClassesAndModulesTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ClassesAndModulesTest.html#method-i-test_namespaced_module">#test_namespaced_module</a>
+    &mdash;
+    <span class="container">RubyIndexer::ClassesAndModulesTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ClassesAndModulesTest.html#method-i-test_nested_modules_and_classes">#test_nested_modules_and_classes</a>
+    &mdash;
+    <span class="container">RubyIndexer::ClassesAndModulesTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/PrefixTreeTest.html#method-i-test_overriding_values">#test_overriding_values</a>
+    &mdash;
+    <span class="container">RubyIndexer::PrefixTreeTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConfigurationTest.html#method-i-test_paths_are_unique">#test_paths_are_unique</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConfigurationTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ClassesAndModulesTest.html#method-i-test_private_class_and_module_indexing">#test_private_class_and_module_indexing</a>
+    &mdash;
+    <span class="container">RubyIndexer::ClassesAndModulesTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConstantTest.html#method-i-test_private_constant_indexing">#test_private_constant_indexing</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConstantTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/IndexTest.html#method-i-test_resolve_normalizes_top_level_names">#test_resolve_normalizes_top_level_names</a>
+    &mdash;
+    <span class="container">RubyIndexer::IndexTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/IndexTest.html#method-i-test_resolving_aliases_to_non_existing_constants_with_conflicting_names">#test_resolving_aliases_to_non_existing_constants_with_conflicting_names</a>
+    &mdash;
+    <span class="container">RubyIndexer::IndexTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/IndexTest.html#method-i-test_searching_for_entries_based_on_prefix">#test_searching_for_entries_based_on_prefix</a>
+    &mdash;
+    <span class="container">RubyIndexer::IndexTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/IndexTest.html#method-i-test_searching_for_require_paths">#test_searching_for_require_paths</a>
+    &mdash;
+    <span class="container">RubyIndexer::IndexTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/PrefixTreeTest.html#method-i-test_single_item">#test_single_item</a>
+    &mdash;
+    <span class="container">RubyIndexer::PrefixTreeTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/MethodTest.html#method-i-test_singleton_method_using_other_receiver_is_not_indexed">#test_singleton_method_using_other_receiver_is_not_indexed</a>
+    &mdash;
+    <span class="container">RubyIndexer::MethodTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/MethodTest.html#method-i-test_singleton_method_using_self_receiver">#test_singleton_method_using_self_receiver</a>
+    &mdash;
+    <span class="container">RubyIndexer::MethodTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/ConstantTest.html#method-i-test_variable_path_constants_are_ignored">#test_variable_path_constants_are_ignored</a>
+    &mdash;
+    <span class="container">RubyIndexer::ConstantTest</span>
+
+  <li class="method">
+    <a href="RubyIndexer/IndexTest.html#method-i-test_visitor_does_not_visit_unnecessary_nodes">#test_visitor_does_not_visit_unnecessary_nodes</a>
+    &mdash;
+    <span class="container">RubyIndexer::IndexTest</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/RuboCopDiagnostic.html#method-i-to_lsp_code_action">#to_lsp_code_action</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::RuboCopDiagnostic</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/RuboCopDiagnostic.html#method-i-to_lsp_diagnostic">#to_lsp_diagnostic</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::RuboCopDiagnostic</span>
+
+  <li class="method">
+    <a href="URI/Source.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">URI::Source</span>
+
+  <li class="method">
+    <a href="URI/Generic.html#method-i-to_standardized_path">#to_standardized_path</a>
+    &mdash;
+    <span class="container">URI::Generic</span>
+
+  <li class="method">
+    <a href="RubyLsp/Document.html#method-i-tree">#tree</a>
+    &mdash;
+    <span class="container">RubyLsp::Document</span>
+
+  <li class="method">
+    <a href="RubyLsp/ParameterScope.html#method-i-type_for">#type_for</a>
+    &mdash;
+    <span class="container">RubyLsp::ParameterScope</span>
+
+  <li class="method">
+    <a href="RubyLsp/Document/Scanner.html#method-i-utf_16_character_position_correction">#utf_16_character_position_correction</a>
+    &mdash;
+    <span class="container">RubyLsp::Document::Scanner</span>
+
+  <li class="method">
+    <a href="RubyLsp/Requests/Support/Common.html#method-i-visible-3F">#visible?</a>
+    &mdash;
+    <span class="container">RubyLsp::Requests::Support::Common</span>
+</ul>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.5.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

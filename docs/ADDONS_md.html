@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>ADDONS - Ruby LSP documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#label-Ruby+LSP+addons">Ruby LSP addons</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Motivation+and+goals">Motivation and goals</a>
+          <li>      <a href="#label-Guidelines">Guidelines</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Building+a+Ruby+LSP+addon">Building a Ruby LSP addon</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Activating+the+addon">Activating the addon</a>
+          <li>      <a href="#label-Enhancing+features">Enhancing features</a>
+          <li>      <a href="#label-Registering+formatters">Registering formatters</a>
+          <li>      <a href="#label-Sending+notifications+to+the+client">Sending notifications to the client</a>
+          <li>      <a href="#label-Ensuring+consistent+documentation">Ensuring consistent documentation</a>
+          <li>      <a href="#label-Dependency+constraints">Dependency constraints</a>
+          <li>      <a href="#label-Testing+addons">Testing addons</a>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="./ADDONS_md.html">ADDONS</a>
+    <li><a href="./CODE_OF_CONDUCT_md.html">CODE_OF_CONDUCT</a>
+    <li><a href="./CONTRIBUTING_md.html">CONTRIBUTING</a>
+    <li><a href="./EDITORS_md.html">EDITORS</a>
+    <li><a href="./README_md.html">README</a>
+    <li><a href="./SEMANTIC_HIGHLIGHTING_md.html">SEMANTIC_HIGHLIGHTING</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page ADDONS.md">
+
+<h1 id="label-Ruby+LSP+addons">Ruby LSP addons<span><a href="#label-Ruby+LSP+addons">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<blockquote>
+<p><strong>WARNING</strong> The Ruby LSP addon system is currently experimental and subject to changes in the API</p>
+</blockquote>
+
+<p>Need help writing addons? Consider joining the ruby-lsp-addons channel in the <a href="https://join.slack.com/t/ruby-dx/shared_invite/zt-1zjp7lmgk-zL7bGvze8gj5hFaYS~r5vg">Ruby DX Slack workspace</a>.</p>
+
+<h2 id="label-Motivation+and+goals">Motivation and goals<span><a href="#label-Motivation+and+goals">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Editor features that are specific to certain tools or frameworks can be incredibly powerful. Typically, language servers are aimed at providing features for a particular programming language (like Ruby!) and not specific tools. This is reasonable since not every programmer uses the same combination of tools.</p>
+
+<p>Including tool specific functionality in the Ruby LSP would not scale well given the large number of tools in the ecosystem. It would also create a bottleneck for authors to push new features. Building separate tooling, on the other hand, increases fragmentation which tends to increase the effort required by users to configure their development environments.</p>
+
+<p>For these reasons, the Ruby LSP ships with an addon system that authors can use to enhance the behavior of the base LSP with tool specific functionality, aimed at</p>
+<ul><li>
+<p>Allowing gem authors to export Ruby LSP addons from their own gems</p>
+</li><li>
+<p>Allowing LSP features to be enhanced by addons present in the application the developer is currently working on</p>
+</li><li>
+<p>Not requiring extra configuration from the user</p>
+</li><li>
+<p>Seamlessly integrating with the base features of the Ruby LSP</p>
+</li></ul>
+
+<h2 id="label-Guidelines">Guidelines<span><a href="#label-Guidelines">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>When building a Ruby LSP addon, refer to these guidelines to ensure a good developer experience.</p>
+<ul><li>
+<p>Performance over features. A single slow request may result in lack of responsiveness in the editor</p>
+</li><li>
+<p>There are two types of LSP requests: automatic (e.g.: semantic highlighting) and user initiated (go to definition). The performance of automatic requests is critical for responsiveness as they are executed every time the user types</p>
+</li><li>
+<p>Avoid duplicate work where possible. If something can be computed once and memoized, like configurations, do it</p>
+</li><li>
+<p>Do not mutate LSP state directly. Addons sometimes have access to important state such as document objects, which should never be mutated directly, but instead through the mechanisms provided by the LSP specification - like text edits</p>
+</li><li>
+<p>Do not overnotify users. It’s generally annoying and diverts attention from the current task</p>
+</li></ul>
+
+<h2 id="label-Building+a+Ruby+LSP+addon">Building a Ruby LSP addon<span><a href="#label-Building+a+Ruby+LSP+addon">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p><strong>Note</strong>: the Ruby LSP uses <a href="https://sorbet.org/">Sorbet</a>. We recommend using Sorbet in addons as well, which allows authors to benefit from types declared by the Ruby LSP.</p>
+
+<p>As an example, check out <a href="https://github.com/Shopify/ruby-lsp-rails">Ruby LSP Rails</a>, which is a Ruby LSP addon to provide Rails related features.</p>
+
+<h3 id="label-Activating+the+addon">Activating the addon<span><a href="#label-Activating+the+addon">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The Ruby LSP discovers addons based on the existence of an <code>addon.rb</code> file placed inside a <code>ruby_lsp</code> folder. For example, <code>my_gem/lib/ruby_lsp/my_gem/addon.rb</code>. This file must declare the addon class, which can be used to perform any necessary activation when the server starts.</p>
+
+<pre class="ruby"><span class="ruby-comment"># frozen_string_literal: true</span>
+
+<span class="ruby-identifier">require</span> <span class="ruby-string">&quot;ruby_lsp/addon&quot;</span>
+
+<span class="ruby-keyword">module</span> <span class="ruby-constant">RubyLsp</span>
+  <span class="ruby-keyword">module</span> <span class="ruby-constant">MyGem</span>
+    <span class="ruby-keyword">class</span> <span class="ruby-constant">Addon</span> <span class="ruby-operator">&lt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">RubyLsp</span><span class="ruby-operator">::</span><span class="ruby-constant">Addon</span>
+      <span class="ruby-identifier">extend</span> <span class="ruby-constant">T</span><span class="ruby-operator">::</span><span class="ruby-constant">Sig</span>
+
+      <span class="ruby-comment"># Performs any activation that needs to happen once when the language server is booted</span>
+      <span class="ruby-identifier">sig</span> { <span class="ruby-identifier">override</span>.<span class="ruby-identifier">void</span> }
+      <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">activate</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-comment"># Performs any cleanup when shutting down the server, like terminating a subprocess</span>
+      <span class="ruby-identifier">sig</span> { <span class="ruby-identifier">override</span>.<span class="ruby-identifier">void</span> }
+      <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deactivate</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-comment"># Returns the name of the addon</span>
+      <span class="ruby-identifier">sig</span> { <span class="ruby-identifier">override</span>.<span class="ruby-identifier">returns</span>(<span class="ruby-constant">String</span>) }
+      <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">name</span>
+        <span class="ruby-string">&quot;Ruby LSP My Gem&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h3 id="label-Enhancing+features">Enhancing features<span><a href="#label-Enhancing+features">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>All Ruby LSP requests are listeners that handle specific node types. To enhance a request, the addon must create a listener that will collect extra results that will be automatically appended to the base language server response. Additionally, <code>Addon</code> has to implement a factory method that instantiates the listener.</p>
+
+<p>For example: to add a message on hover saying “Hello!” on top of the base hover behavior of the Ruby LSP, we can use the following listener implementation.</p>
+
+<pre class="ruby"><span class="ruby-comment"># frozen_string_literal: true</span>
+
+<span class="ruby-keyword">module</span> <span class="ruby-constant">RubyLsp</span>
+  <span class="ruby-keyword">module</span> <span class="ruby-constant">MyGem</span>
+    <span class="ruby-keyword">class</span> <span class="ruby-constant">Addon</span> <span class="ruby-operator">&lt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">RubyLsp</span><span class="ruby-operator">::</span><span class="ruby-constant">Addon</span>
+      <span class="ruby-identifier">extend</span> <span class="ruby-constant">T</span><span class="ruby-operator">::</span><span class="ruby-constant">Sig</span>
+
+      <span class="ruby-identifier">sig</span> { <span class="ruby-identifier">override</span>.<span class="ruby-identifier">void</span> }
+      <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">activate</span>
+        <span class="ruby-ivar">@config</span> = <span class="ruby-constant">SomeConfiguration</span>.<span class="ruby-identifier">new</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">sig</span> { <span class="ruby-identifier">override</span>.<span class="ruby-identifier">void</span> }
+      <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deactivate</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">sig</span> { <span class="ruby-identifier">override</span>.<span class="ruby-identifier">returns</span>(<span class="ruby-constant">String</span>) }
+      <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">name</span>
+        <span class="ruby-string">&quot;Ruby LSP My Gem&quot;</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">sig</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">override</span>.<span class="ruby-identifier">params</span>(
+          <span class="ruby-value">nesting:</span> <span class="ruby-constant">T</span><span class="ruby-operator">::</span><span class="ruby-constant">Array</span>[<span class="ruby-constant">String</span>],
+          <span class="ruby-value">index:</span> <span class="ruby-constant">RubyIndexer</span><span class="ruby-operator">::</span><span class="ruby-constant">Index</span>,
+          <span class="ruby-value">dispatcher:</span> <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">Dispatcher</span>,
+          <span class="ruby-value">message_queue:</span> <span class="ruby-constant">Thread</span><span class="ruby-operator">::</span><span class="ruby-constant">Queue</span>,
+        ).<span class="ruby-identifier">returns</span>(<span class="ruby-constant">T</span>.<span class="ruby-identifier">nilable</span>(<span class="ruby-constant">Listener</span>[<span class="ruby-constant">T</span>.<span class="ruby-identifier">nilable</span>(<span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-constant">Hover</span>)]))
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create_hover_listener</span>(<span class="ruby-identifier">nesting</span>, <span class="ruby-identifier">index</span>, <span class="ruby-identifier">dispatcher</span>, <span class="ruby-identifier">message_queue</span>)
+        <span class="ruby-comment"># Use the listener factory methods to instantiate listeners with parameters sent by the LSP combined with any</span>
+        <span class="ruby-comment"># pre-computed information in the addon. These factory methods are invoked on every request</span>
+        <span class="ruby-constant">Hover</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@config</span>, <span class="ruby-identifier">dispatcher</span>, <span class="ruby-identifier">message_queue</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># All listeners have to inherit from ::RubyLsp::Listener</span>
+    <span class="ruby-keyword">class</span> <span class="ruby-constant">Hover</span> <span class="ruby-operator">&lt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">RubyLsp</span><span class="ruby-operator">::</span><span class="ruby-constant">Listener</span>
+      <span class="ruby-identifier">extend</span> <span class="ruby-constant">T</span><span class="ruby-operator">::</span><span class="ruby-constant">Sig</span>
+      <span class="ruby-identifier">extend</span> <span class="ruby-constant">T</span><span class="ruby-operator">::</span><span class="ruby-constant">Generic</span>
+
+      <span class="ruby-constant">ResponseType</span> = <span class="ruby-identifier">type_member</span> { { <span class="ruby-value">fixed:</span> <span class="ruby-constant">T</span>.<span class="ruby-identifier">nilable</span>(<span class="ruby-operator">::</span><span class="ruby-constant">RubyLsp</span><span class="ruby-operator">::</span><span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-constant">Hover</span>) } }
+
+      <span class="ruby-identifier">sig</span> { <span class="ruby-identifier">override</span>.<span class="ruby-identifier">returns</span>(<span class="ruby-constant">ResponseType</span>) }
+      <span class="ruby-identifier">attr_reader</span> <span class="ruby-value">:_response</span>
+
+      <span class="ruby-comment"># Listeners are initialized with the Prism::Dispatcher. This object is used by the Ruby LSP to emit the events</span>
+      <span class="ruby-comment"># when it finds nodes during AST analysis. Listeners must register which nodes they want to handle with the</span>
+      <span class="ruby-comment"># dispatcher (see below).</span>
+      <span class="ruby-comment"># Additionally, listeners are instantiated with a message_queue to push notifications (not used in this example).</span>
+      <span class="ruby-comment"># See &quot;Sending notifications to the client&quot; for more information.</span>
+      <span class="ruby-identifier">sig</span> { <span class="ruby-identifier">params</span>(<span class="ruby-value">config:</span> <span class="ruby-constant">SomeConfiguration</span>, <span class="ruby-value">dispatcher:</span> <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">Dispatcher</span>, <span class="ruby-value">message_queue:</span> <span class="ruby-constant">Thread</span><span class="ruby-operator">::</span><span class="ruby-constant">Queue</span>).<span class="ruby-identifier">void</span> }
+      <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">config</span>, <span class="ruby-identifier">dispatcher</span>, <span class="ruby-identifier">message_queue</span>)
+        <span class="ruby-keyword">super</span>
+
+        <span class="ruby-ivar">@_response</span> = <span class="ruby-constant">T</span>.<span class="ruby-identifier">let</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-constant">ResponseType</span>)
+        <span class="ruby-ivar">@config</span> = <span class="ruby-identifier">config</span>
+
+        <span class="ruby-comment"># Register that this listener will handle `on_constant_read_node_enter` events (i.e.: whenever a constant read</span>
+        <span class="ruby-comment"># is found in the code)</span>
+        <span class="ruby-identifier">dispatcher</span>.<span class="ruby-identifier">register</span>(<span class="ruby-keyword">self</span>, <span class="ruby-value">:on_constant_read_node_enter</span>)
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-comment"># Listeners must define methods for each event they registered with the dispatcher. In this case, we have to</span>
+      <span class="ruby-comment"># define `on_constant_read_node_enter` to specify what this listener should do every time we find a constant</span>
+      <span class="ruby-identifier">sig</span> { <span class="ruby-identifier">params</span>(<span class="ruby-value">node:</span> <span class="ruby-constant">Prism</span><span class="ruby-operator">::</span><span class="ruby-constant">ConstantReadNode</span>).<span class="ruby-identifier">void</span> }
+      <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_constant_read_node_enter</span>(<span class="ruby-identifier">node</span>)
+        <span class="ruby-comment"># Certain helpers are made available to listeners to build LSP responses. The classes under `RubyLsp::Interface`</span>
+        <span class="ruby-comment"># are generally used to build responses and they match exactly what the specification requests.</span>
+        <span class="ruby-identifier">contents</span> = <span class="ruby-constant">RubyLsp</span><span class="ruby-operator">::</span><span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-constant">MarkupContent</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">kind:</span> <span class="ruby-string">&quot;markdown&quot;</span>, <span class="ruby-value">value:</span> <span class="ruby-string">&quot;Hello!&quot;</span>)
+        <span class="ruby-ivar">@_response</span> = <span class="ruby-constant">RubyLsp</span><span class="ruby-operator">::</span><span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-constant">Hover</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">range:</span> <span class="ruby-identifier">range_from_node</span>(<span class="ruby-identifier">node</span>), <span class="ruby-value">contents:</span> <span class="ruby-identifier">contents</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h3 id="label-Registering+formatters">Registering formatters<span><a href="#label-Registering+formatters">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Gems may also provide a formatter to be used by the Ruby LSP. To do that, the addon must create a formatter runner and register it. The formatter is used if the <code>rubyLsp.formatter</code> option configured by the user matches the identifier registered.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">MyFormatterRubyLspAddon</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">RubyLsp</span><span class="ruby-operator">::</span><span class="ruby-constant">Addon</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">name</span>
+    <span class="ruby-string">&quot;My Formatter&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">activate</span>
+    <span class="ruby-comment"># The first argument is an identifier users can pick to select this formatter. To use this formatter, users must</span>
+    <span class="ruby-comment"># have rubyLsp.formatter configured to &quot;my_formatter&quot;</span>
+    <span class="ruby-comment"># The second argument is a singleton instance that implements the `FormatterRunner` interface (see below)</span>
+    <span class="ruby-constant">RubyLsp</span><span class="ruby-operator">::</span><span class="ruby-constant">Requests</span><span class="ruby-operator">::</span><span class="ruby-constant">Formatting</span>.<span class="ruby-identifier">register_formatter</span>(<span class="ruby-string">&quot;my_formatter&quot;</span>, <span class="ruby-constant">MyFormatterRunner</span>.<span class="ruby-identifier">instance</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-comment"># Custom formatting runner</span>
+<span class="ruby-keyword">class</span> <span class="ruby-constant">MyFormatterRunner</span>
+  <span class="ruby-comment"># Make it a singleton class</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">Singleton</span>
+  <span class="ruby-comment"># If using Sorbet to develop the addon, then include this interface to make sure the class is properly implemented</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">RubyLsp</span><span class="ruby-operator">::</span><span class="ruby-constant">Requests</span><span class="ruby-operator">::</span><span class="ruby-constant">Support</span><span class="ruby-operator">::</span><span class="ruby-constant">FormatterRunner</span>
+
+  <span class="ruby-comment"># Use the initialize method to perform any sort of ahead of time work. For example, reading configurations for your</span>
+  <span class="ruby-comment"># formatter since they are unlikely to change between requests</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># The main part of the interface is implementing the run method. It receives the URI and the document being formatted.</span>
+  <span class="ruby-comment"># IMPORTANT: This method must return the formatted document source without mutating the original one in document</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">run</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">document</span>)
+    <span class="ruby-identifier">source</span> = <span class="ruby-identifier">document</span>.<span class="ruby-identifier">source</span>
+    <span class="ruby-identifier">formatted_source</span> = <span class="ruby-identifier">format_the_source_using_my_formatter</span>(<span class="ruby-identifier">source</span>)
+    <span class="ruby-identifier">formatted_source</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h3 id="label-Sending+notifications+to+the+client">Sending notifications to the client<span><a href="#label-Sending+notifications+to+the+client">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Sometimes, requests may want to send asynchronous information to the client. For example, a slow request may want to indicate progress. To send notifications, all listeners have access to the message queue, where they can push notifications to the client.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">MyListener</span> <span class="ruby-operator">&lt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">RubyLsp</span><span class="ruby-operator">::</span><span class="ruby-constant">Listener</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">dispatcher</span>, <span class="ruby-identifier">message_queue</span>)
+    <span class="ruby-keyword">super</span>
+
+    <span class="ruby-ivar">@message_queue</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">new</span>(
+      <span class="ruby-value">message:</span> <span class="ruby-string">&quot;$/progress&quot;</span>,
+      <span class="ruby-value">params:</span> <span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-constant">ProgressParams</span>.<span class="ruby-identifier">new</span>(
+        <span class="ruby-value">token:</span> <span class="ruby-string">&quot;progress-token-id&quot;</span>,
+        <span class="ruby-value">value:</span> <span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-constant">WorkDoneProgressBegin</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">kind:</span> <span class="ruby-string">&quot;begin&quot;</span>, <span class="ruby-value">title:</span> <span class="ruby-string">&quot;Starting slow work!&quot;</span>),
+      )
+    )
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h3 id="label-Ensuring+consistent+documentation">Ensuring consistent documentation<span><a href="#label-Ensuring+consistent+documentation">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The Ruby LSP exports a Rake task to help authors make sure all of their listeners are documented and include demos and examples of the feature in action. Configure the Rake task and run <code>bundle exec rake ruby_lsp:check_docs</code> on CI to ensure documentation is always up to date and consistent.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&quot;ruby_lsp/check_docs&quot;</span>
+
+<span class="ruby-comment"># The first argument is the file list including all of the listeners declared by the addon</span>
+<span class="ruby-comment"># The second argument is the file list of GIF files with the demos of all listeners</span>
+<span class="ruby-constant">RubyLsp</span><span class="ruby-operator">::</span><span class="ruby-constant">CheckDocs</span>.<span class="ruby-identifier">new</span>(
+  <span class="ruby-constant">FileList</span>[<span class="ruby-node">&quot;#{__dir__}/lib/ruby_lsp/ruby_lsp_rails/**/*.rb&quot;</span>],
+  <span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;#{__dir__}/misc/**/*.gif&quot;</span>)
+)
+</pre>
+
+<h3 id="label-Dependency+constraints">Dependency constraints<span><a href="#label-Dependency+constraints">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>While we figure out a good design for the addons API, breaking changes are bound to happen. To avoid having your addon accidentally break editor functionality, always restrict the dependency on the <code>ruby-lsp</code> gem based on minor versions (breaking changes may land on minor versions until we reach v1.0.0).</p>
+
+<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">add_dependency</span>(<span class="ruby-string">&quot;ruby-lsp&quot;</span>, <span class="ruby-string">&quot;~&gt; 0.6.0&quot;</span>)
+</pre>
+
+<h3 id="label-Testing+addons">Testing addons<span><a href="#label-Testing+addons">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>When writing unit tests for addons, it’s essential to keep in mind that code is rarely in its final state while the developer is coding. Therefore, be sure to test valid scenarios where the code is still incomplete.</p>
+
+<p>For example, if you are writing a feature related to <code>require</code>, do not test <code>require &quot;library&quot;</code> exclusively. Consider intermediate states the user might end up while typing. Additionally, consider syntax that is uncommon, yet still valid Ruby.</p>
+
+<pre class="ruby"><span class="ruby-comment"># Still no argument</span>
+<span class="ruby-identifier">require</span>
+
+<span class="ruby-comment"># With quotes autocompleted, but no content on the string</span>
+<span class="ruby-identifier">require</span> <span class="ruby-string">&quot;&quot;</span>
+
+<span class="ruby-comment"># Using uncommon, but valid syntax, such as invoking require directly on Kernel using parenthesis</span>
+<span class="ruby-constant">Kernel</span>.<span class="ruby-identifier">require</span>(<span class="ruby-string">&quot;library&quot;</span>)
+</pre>
+
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.5.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RubyIndexer::PrefixTreeTest - Ruby LSP documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+<div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  <p class="link">Minitest::Test
+</div>
+
+    
+    
+    
+<!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    <li ><a href="#method-i-test_delete_does_not_impact_other_keys_with_the_same_value">#test_delete_does_not_impact_other_keys_with_the_same_value</a>
+    <li ><a href="#method-i-test_deleted_node_is_removed_from_the_tree">#test_deleted_node_is_removed_from_the_tree</a>
+    <li ><a href="#method-i-test_deleting_non_terminal_nodes">#test_deleting_non_terminal_nodes</a>
+    <li ><a href="#method-i-test_deletion">#test_deletion</a>
+    <li ><a href="#method-i-test_empty">#test_empty</a>
+    <li ><a href="#method-i-test_multiple_items">#test_multiple_items</a>
+    <li ><a href="#method-i-test_multiple_prefixes">#test_multiple_prefixes</a>
+    <li ><a href="#method-i-test_multiple_prefixes_with_shuffled_order">#test_multiple_prefixes_with_shuffled_order</a>
+    <li ><a href="#method-i-test_overriding_values">#test_overriding_values</a>
+    <li ><a href="#method-i-test_single_item">#test_single_item</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RubyIndexer::PrefixTreeTest">
+  <h1 id="class-RubyIndexer::PrefixTreeTest" class="class">
+    class RubyIndexer::PrefixTreeTest
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section">
+
+
+
+
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-test_delete_does_not_impact_other_keys_with_the_same_value" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">test_delete_does_not_impact_other_keys_with_the_same_value</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="test_delete_does_not_impact_other_keys_with_the_same_value-source">
+            <pre><span class="ruby-comment"># File lib/ruby_indexer/test/prefix_tree_test.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_delete_does_not_impact_other_keys_with_the_same_value</span>
+  <span class="ruby-identifier">tree</span> = <span class="ruby-constant">PrefixTree</span>[<span class="ruby-constant">String</span>].<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-string">&quot;key1&quot;</span>, <span class="ruby-string">&quot;value&quot;</span>)
+  <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-string">&quot;key2&quot;</span>, <span class="ruby-string">&quot;value&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span>([<span class="ruby-string">&quot;value&quot;</span>, <span class="ruby-string">&quot;value&quot;</span>], <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;key&quot;</span>))
+
+  <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&quot;key2&quot;</span>)
+  <span class="ruby-identifier">assert_empty</span>(<span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;key2&quot;</span>))
+  <span class="ruby-identifier">assert_equal</span>([<span class="ruby-string">&quot;value&quot;</span>], <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;key1&quot;</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_deleted_node_is_removed_from_the_tree" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">test_deleted_node_is_removed_from_the_tree</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="test_deleted_node_is_removed_from_the_tree-source">
+            <pre><span class="ruby-comment"># File lib/ruby_indexer/test/prefix_tree_test.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_deleted_node_is_removed_from_the_tree</span>
+  <span class="ruby-identifier">tree</span> = <span class="ruby-constant">PrefixTree</span>[<span class="ruby-constant">String</span>].<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-string">&quot;foo/bar&quot;</span>, <span class="ruby-string">&quot;foo/bar&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span>([<span class="ruby-string">&quot;foo/bar&quot;</span>], <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;foo&quot;</span>))
+
+  <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&quot;foo/bar&quot;</span>)
+  <span class="ruby-identifier">root</span> = <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value">:@root</span>)
+  <span class="ruby-identifier">assert_empty</span>(<span class="ruby-identifier">root</span>.<span class="ruby-identifier">children</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_deleting_non_terminal_nodes" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">test_deleting_non_terminal_nodes</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="test_deleting_non_terminal_nodes-source">
+            <pre><span class="ruby-comment"># File lib/ruby_indexer/test/prefix_tree_test.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_deleting_non_terminal_nodes</span>
+  <span class="ruby-identifier">tree</span> = <span class="ruby-constant">PrefixTree</span>[<span class="ruby-constant">String</span>].<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-string">&quot;abc&quot;</span>, <span class="ruby-string">&quot;value1&quot;</span>)
+  <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-string">&quot;abcdef&quot;</span>, <span class="ruby-string">&quot;value2&quot;</span>)
+
+  <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&quot;abcdef&quot;</span>)
+  <span class="ruby-identifier">assert_empty</span>(<span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;abcdef&quot;</span>))
+  <span class="ruby-identifier">assert_equal</span>([<span class="ruby-string">&quot;value1&quot;</span>], <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;abc&quot;</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_deletion" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">test_deletion</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="test_deletion-source">
+            <pre><span class="ruby-comment"># File lib/ruby_indexer/test/prefix_tree_test.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_deletion</span>
+  <span class="ruby-identifier">tree</span> = <span class="ruby-constant">PrefixTree</span>[<span class="ruby-constant">String</span>].<span class="ruby-identifier">new</span>
+  [<span class="ruby-string">&quot;foo/bar&quot;</span>, <span class="ruby-string">&quot;foo/baz&quot;</span>].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span> <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-identifier">item</span>, <span class="ruby-identifier">item</span>) }
+  <span class="ruby-identifier">assert_equal</span>([<span class="ruby-string">&quot;foo/bar&quot;</span>, <span class="ruby-string">&quot;foo/baz&quot;</span>], <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;foo&quot;</span>))
+
+  <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&quot;foo/bar&quot;</span>)
+  <span class="ruby-identifier">assert_empty</span>(<span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;foo/bar&quot;</span>))
+  <span class="ruby-identifier">assert_equal</span>([<span class="ruby-string">&quot;foo/baz&quot;</span>], <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;foo&quot;</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_empty" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">test_empty</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="test_empty-source">
+            <pre><span class="ruby-comment"># File lib/ruby_indexer/test/prefix_tree_test.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_empty</span>
+  <span class="ruby-identifier">tree</span> = <span class="ruby-constant">PrefixTree</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-identifier">assert_empty</span>(<span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;&quot;</span>))
+  <span class="ruby-identifier">assert_empty</span>(<span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;foo&quot;</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_multiple_items" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">test_multiple_items</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="test_multiple_items-source">
+            <pre><span class="ruby-comment"># File lib/ruby_indexer/test/prefix_tree_test.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_multiple_items</span>
+  <span class="ruby-identifier">tree</span> = <span class="ruby-constant">PrefixTree</span>[<span class="ruby-constant">String</span>].<span class="ruby-identifier">new</span>
+  [<span class="ruby-string">&quot;foo&quot;</span>, <span class="ruby-string">&quot;bar&quot;</span>, <span class="ruby-string">&quot;baz&quot;</span>].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span> <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-identifier">item</span>, <span class="ruby-identifier">item</span>) }
+
+  <span class="ruby-identifier">assert_equal</span>([<span class="ruby-string">&quot;foo&quot;</span>, <span class="ruby-string">&quot;bar&quot;</span>, <span class="ruby-string">&quot;baz&quot;</span>], <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;&quot;</span>))
+  <span class="ruby-identifier">assert_equal</span>([<span class="ruby-string">&quot;bar&quot;</span>, <span class="ruby-string">&quot;baz&quot;</span>], <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;b&quot;</span>))
+  <span class="ruby-identifier">assert_equal</span>([<span class="ruby-string">&quot;foo&quot;</span>], <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;fo&quot;</span>))
+  <span class="ruby-identifier">assert_equal</span>([<span class="ruby-string">&quot;bar&quot;</span>, <span class="ruby-string">&quot;baz&quot;</span>], <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;ba&quot;</span>))
+  <span class="ruby-identifier">assert_equal</span>([<span class="ruby-string">&quot;baz&quot;</span>], <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;baz&quot;</span>))
+  <span class="ruby-identifier">assert_empty</span>(<span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;qux&quot;</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_multiple_prefixes" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">test_multiple_prefixes</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="test_multiple_prefixes-source">
+            <pre><span class="ruby-comment"># File lib/ruby_indexer/test/prefix_tree_test.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_multiple_prefixes</span>
+  <span class="ruby-identifier">tree</span> = <span class="ruby-constant">PrefixTree</span>[<span class="ruby-constant">String</span>].<span class="ruby-identifier">new</span>
+  [<span class="ruby-string">&quot;fo&quot;</span>, <span class="ruby-string">&quot;foo&quot;</span>].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span> <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-identifier">item</span>, <span class="ruby-identifier">item</span>) }
+
+  <span class="ruby-identifier">assert_equal</span>([<span class="ruby-string">&quot;fo&quot;</span>, <span class="ruby-string">&quot;foo&quot;</span>], <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;&quot;</span>))
+  <span class="ruby-identifier">assert_equal</span>([<span class="ruby-string">&quot;fo&quot;</span>, <span class="ruby-string">&quot;foo&quot;</span>], <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;f&quot;</span>))
+  <span class="ruby-identifier">assert_equal</span>([<span class="ruby-string">&quot;fo&quot;</span>, <span class="ruby-string">&quot;foo&quot;</span>], <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;fo&quot;</span>))
+  <span class="ruby-identifier">assert_equal</span>([<span class="ruby-string">&quot;foo&quot;</span>], <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;foo&quot;</span>))
+  <span class="ruby-identifier">assert_empty</span>(<span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;fooo&quot;</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_multiple_prefixes_with_shuffled_order" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">test_multiple_prefixes_with_shuffled_order</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="test_multiple_prefixes_with_shuffled_order-source">
+            <pre><span class="ruby-comment"># File lib/ruby_indexer/test/prefix_tree_test.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_multiple_prefixes_with_shuffled_order</span>
+  <span class="ruby-identifier">tree</span> = <span class="ruby-constant">PrefixTree</span>[<span class="ruby-constant">String</span>].<span class="ruby-identifier">new</span>
+  [
+    <span class="ruby-string">&quot;foo/bar/base&quot;</span>,
+    <span class="ruby-string">&quot;foo/bar/on&quot;</span>,
+    <span class="ruby-string">&quot;foo/bar/support/selection&quot;</span>,
+    <span class="ruby-string">&quot;foo/bar/support/runner&quot;</span>,
+    <span class="ruby-string">&quot;foo/internal&quot;</span>,
+    <span class="ruby-string">&quot;foo/bar/document&quot;</span>,
+    <span class="ruby-string">&quot;foo/bar/code&quot;</span>,
+    <span class="ruby-string">&quot;foo/bar/support/rails&quot;</span>,
+    <span class="ruby-string">&quot;foo/bar/diagnostics&quot;</span>,
+    <span class="ruby-string">&quot;foo/bar/document2&quot;</span>,
+    <span class="ruby-string">&quot;foo/bar/support/runner2&quot;</span>,
+    <span class="ruby-string">&quot;foo/bar/support/diagnostic&quot;</span>,
+    <span class="ruby-string">&quot;foo/document&quot;</span>,
+    <span class="ruby-string">&quot;foo/bar/formatting&quot;</span>,
+    <span class="ruby-string">&quot;foo/bar/support/highlight&quot;</span>,
+    <span class="ruby-string">&quot;foo/bar/semantic&quot;</span>,
+    <span class="ruby-string">&quot;foo/bar/support/prefix&quot;</span>,
+    <span class="ruby-string">&quot;foo/bar/folding&quot;</span>,
+    <span class="ruby-string">&quot;foo/bar/selection&quot;</span>,
+    <span class="ruby-string">&quot;foo/bar/support/syntax&quot;</span>,
+    <span class="ruby-string">&quot;foo/bar/document3&quot;</span>,
+    <span class="ruby-string">&quot;foo/bar/hover&quot;</span>,
+    <span class="ruby-string">&quot;foo/bar/support/semantic&quot;</span>,
+    <span class="ruby-string">&quot;foo/bar/support/source&quot;</span>,
+    <span class="ruby-string">&quot;foo/bar/inlay&quot;</span>,
+    <span class="ruby-string">&quot;foo/requests&quot;</span>,
+    <span class="ruby-string">&quot;foo/bar/support/formatting&quot;</span>,
+    <span class="ruby-string">&quot;foo/bar/path&quot;</span>,
+    <span class="ruby-string">&quot;foo/executor&quot;</span>,
+  ].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span> <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-identifier">item</span>, <span class="ruby-identifier">item</span>) }
+
+  <span class="ruby-identifier">assert_equal</span>(
+    [
+      <span class="ruby-string">&quot;foo/bar/support/selection&quot;</span>,
+      <span class="ruby-string">&quot;foo/bar/support/semantic&quot;</span>,
+      <span class="ruby-string">&quot;foo/bar/support/syntax&quot;</span>,
+      <span class="ruby-string">&quot;foo/bar/support/source&quot;</span>,
+      <span class="ruby-string">&quot;foo/bar/support/runner&quot;</span>,
+      <span class="ruby-string">&quot;foo/bar/support/runner2&quot;</span>,
+      <span class="ruby-string">&quot;foo/bar/support/rails&quot;</span>,
+      <span class="ruby-string">&quot;foo/bar/support/diagnostic&quot;</span>,
+      <span class="ruby-string">&quot;foo/bar/support/highlight&quot;</span>,
+      <span class="ruby-string">&quot;foo/bar/support/prefix&quot;</span>,
+      <span class="ruby-string">&quot;foo/bar/support/formatting&quot;</span>,
+    ],
+    <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;foo/bar/support&quot;</span>),
+  )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_overriding_values" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">test_overriding_values</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="test_overriding_values-source">
+            <pre><span class="ruby-comment"># File lib/ruby_indexer/test/prefix_tree_test.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_overriding_values</span>
+  <span class="ruby-identifier">tree</span> = <span class="ruby-constant">PrefixTree</span>[<span class="ruby-constant">Integer</span>].<span class="ruby-identifier">new</span>
+
+  <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-string">&quot;foo/bar&quot;</span>, <span class="ruby-value">123</span>)
+  <span class="ruby-identifier">assert_equal</span>([<span class="ruby-value">123</span>], <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;foo/bar&quot;</span>))
+
+  <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-string">&quot;foo/bar&quot;</span>, <span class="ruby-value">456</span>)
+  <span class="ruby-identifier">assert_equal</span>([<span class="ruby-value">456</span>], <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;foo/bar&quot;</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_single_item" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">test_single_item</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="test_single_item-source">
+            <pre><span class="ruby-comment"># File lib/ruby_indexer/test/prefix_tree_test.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_single_item</span>
+  <span class="ruby-identifier">tree</span> = <span class="ruby-constant">PrefixTree</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-string">&quot;foo&quot;</span>, <span class="ruby-string">&quot;foo&quot;</span>)
+
+  <span class="ruby-identifier">assert_equal</span>([<span class="ruby-string">&quot;foo&quot;</span>], <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;&quot;</span>))
+  <span class="ruby-identifier">assert_equal</span>([<span class="ruby-string">&quot;foo&quot;</span>], <span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;foo&quot;</span>))
+  <span class="ruby-identifier">assert_empty</span>(<span class="ruby-identifier">tree</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;bar&quot;</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.5.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
